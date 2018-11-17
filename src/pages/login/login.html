@@ -1,0 +1,33 @@
+<ion-content class="background">
+
+  <ion-card>
+
+    <ion-card-header class="oi">
+      Login
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list no-lines>
+
+        <ion-item>
+          <ion-label floating class="o">E-mail</ion-label>
+          <ion-input type="email" [(ngModel)]="credentials.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating class="o">Senha</ion-label>
+          <ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <p (click)="passwordreset()">Esqueceu a Senha? <a>Criar nova senha</a></p>
+        </ion-item>
+
+        <button ion-button full color="primary" (click)="signin()">Login</button>
+        <button ion-button full color="danger" (click)="signup()">Voltar</button>
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

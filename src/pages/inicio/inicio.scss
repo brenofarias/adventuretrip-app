@@ -1,0 +1,27 @@
+page-inicio {
+    .background{
+        background-image: url('../../assets/imgs/bg.jpg');
+        background-size: 100% 100%;
+    }// cores do fundo//
+        
+    .logo{
+        margin-top: 20%;
+        margin-bottom: 40%;
+        text-align: center;
+    }
+        
+    .button{
+        text-align: center;
+        margin-top: 5%;
+        background-color: teal;
+        border-radius: 20px;
+    }
+        
+    .autorais{
+        text-align: center;
+        margin-top: 25%;
+        color: #FFFFFF;
+        font: arial;
+    }
+    
+}

@@ -1,0 +1,47 @@
+<!--
+  Generated template for the PacotesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="hcolor">
+    <ion-title>Pacotes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let p of pacotes">
+    <ion-slides>
+
+      <ion-slide>
+        <img src="{{p.foto}}" />
+      </ion-slide>
+
+      <ion-slide>
+        <img src="{{p.foto}}" />
+      </ion-slide>
+
+      <ion-slide>
+        <img src="{{p.foto}}" />
+      </ion-slide>
+
+    </ion-slides>
+
+    <ion-card-content color="twitter">
+      <span>AÉRO, HOTE + PASSEIO</span>
+      <ion-card-title text-uppercase>
+        {{p.nome}}
+      </ion-card-title>
+      <p>
+        {{p.descricao}}
+      </p>
+      <ion-icon name="sunny"></ion-icon> 4 ou 5 diárias   <ion-icon name="cafe" padding-left></ion-icon> Café da manhã
+      <p text-end style="color: rgb(48, 219, 48);"><span>R$</span><strong style="font-size: 24px;">{{p.preco}}</strong></p>
+    </ion-card-content>
+  </ion-card>
+  <p></p>
+</ion-content>

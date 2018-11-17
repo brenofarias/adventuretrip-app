@@ -1,0 +1,54 @@
+page-login {
+	.background{
+		background-image: url('../../assets/imgs/bg.jpg');
+		background-size: 100% 100%;
+	}// cores do fundo//
+	
+	@keyframes colorchange{
+		0%{background-position: 0% 99%}
+		50%{background-position: 100% 1%}
+		100%{background-position: 10% 90%}
+	}//Fundo colorido orde de passagem de cores//
+		  
+	ion-card.card {
+		margin-top: 30%;
+		box-shadow: none;
+		background: rgba(0,0,0,0.6px);
+		border-radius: 10px;
+		z-index: 100;
+		color: #000;
+	}//Fundo tranparente preto kk//
+		  
+	.item {
+		background: rgba(232, 230, 230, 0px);
+		border: medium none;
+	}// deixar as areas de o usuario digitar transparente//
+		  
+	  ion-input {
+		border-bottom: #FFF solid 1px;
+	} //linha azul nos campos de texto//
+	  
+	h1{
+		font: arial;
+		font-size: 3em;
+		font-weight: lighter;
+		color: #000000;
+	}
+	  
+	.oi{
+		color: #ffffff;
+		font: arial;
+		text-align: center;
+	}
+		
+	.o{
+		color: #ffffff;
+		font: arial;
+	}//criei outra para não ficar o senha centralizado//
+
+	.button{
+        text-align: center;
+        margin-top: 5%;
+        border-radius: 20px;
+    }
+}

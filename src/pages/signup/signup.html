@@ -1,0 +1,51 @@
+<ion-content class="background">
+
+  <ion-card>
+    <ion-card-header class="oi">
+      Criar conta
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+
+        <ion-item class="o">
+          <ion-label floating>Nome Completo</ion-label>
+          <ion-input type="text" [(ngModel)]="newuser.displayName"></ion-input>
+        </ion-item>
+
+        <br />
+        <ion-item class="o">
+          <ion-label>Ano de nascimento</ion-label>
+          <ion-datetime displayFormat="YYYY" [(ngModel)]="newuser.nascimento"></ion-datetime>
+        </ion-item>
+        <br />
+
+        <ion-item class="o">
+          <ion-label>Sexo</ion-label>
+          <ion-select [(ngModel)]="newuser.sexo">
+            <ion-option name="sexo" value="M">Masculino</ion-option>
+            <ion-option name="sexo" value="F">Feminino</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="o">
+          <ion-label floating>CPF</ion-label>
+          <ion-input type="text" name="cpf" [(ngModel)]="newuser.cpf"></ion-input>
+        </ion-item>
+
+        <ion-item class="o">
+          <ion-label floating>E-mail</ion-label>
+          <ion-input type="email" [(ngModel)]="newuser.email"></ion-input>
+        </ion-item>
+
+        <ion-item class="o">
+          <ion-label floating>Senha</ion-label>
+          <ion-input type="password" [(ngModel)]="newuser.password"></ion-input>
+        </ion-item>
+
+        <button ion-button full color="secundary" (click)="signup()">Criar conta</button>
+        <button ion-button full color="danger" (click)="goBack()">Voltar</button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
