@@ -18,8 +18,13 @@ export class PacotesPage {
   pacotes;
   constructor(public navCtrl: NavController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
     this.pacoteservice.getallpacotes().then((res: any) => {
-      this.pacotes = (<any>Object).values(res);
-      console.log(this.pacotes);           
+      this.pacotes = [];
+      res.map((map) => {
+        console.log(map)
+        this.pacotes.push(...(<any>Object).values(map))
+      });
+      console.log(this.pacotes);
+      console.log('resposta mais top da cidade',res);           
     })
   }
 
