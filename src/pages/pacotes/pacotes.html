@@ -8,13 +8,13 @@
 
   <ion-navbar color="hcolor">
     <ion-title>Pacotes</ion-title>
-  </ion-navbar>
+  </ion-navbar> 
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-card *ngFor="let p of pacotes">
+  <ion-card *ngFor="let p of pacotes" (click)="descpacotes(p)">
     <ion-slides>
 
       <ion-slide>

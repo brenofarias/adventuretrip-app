@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PacotesProvider } from '../../providers/pacotes/pacotes';
 
 /**
  * Generated class for the DescpacotesPage page.
@@ -14,8 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'descpacotes.html',
 })
 export class DescpacotesPage {
+  pacote = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
+    // this.pacote = this.pacoteservice.pacote;
+    // console.log(this.pacote);
+    this.pacote = navParams.get('pacote');
+    console.log(this.pacote);
+    
   }
 
   ionViewDidLoad() {

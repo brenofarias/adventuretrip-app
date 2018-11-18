@@ -8,10 +8,11 @@
     text-align: center;
 }
 
-.profile-image {
+ion-list {
     img {
         height: 200px;
         width: 200px;
+        margin: 20px 0 0 50px;
         border-radius: 50%;
         border: 4px solid rgba(255, 255, 255, 0.4);
         -webkit-box-shodow: 0px 0px 142px -37px rgba(0, 0, 0, 0.75);

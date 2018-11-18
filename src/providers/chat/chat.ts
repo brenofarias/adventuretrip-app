@@ -13,10 +13,12 @@ export class ChatProvider {
   buddy: any;
   buddymessages = [];
   constructor(public events: Events) {
+    
   }
 
   initializebuddy(buddy) {
     this.buddy = buddy;
+    console.log(this.buddy);
   }
 
   addnewmessage(msg) {

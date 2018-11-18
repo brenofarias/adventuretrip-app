@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PacotesProvider } from '../../providers/pacotes/pacotes';
+import { DescpacotesPage } from '../descpacotes/descpacotes';
 
 /**
  * Generated class for the PacotesPage page.
@@ -20,16 +21,23 @@ export class PacotesPage {
     this.pacoteservice.getallpacotes().then((res: any) => {
       this.pacotes = [];
       res.map((map) => {
-        console.log(map)
+        // console.log(map)
         this.pacotes.push(...(<any>Object).values(map))
       });
       console.log(this.pacotes);
-      console.log('resposta mais top da cidade',res);           
+      // console.log('resposta mais top da cidade',res);           
     })
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PacotesPage');
+    // console.log('ionViewDidLoad PacotesPage');
+  }
+
+  descpacotes(objPacote) {
+    // this.pacoteservice.gopacotedesc(pacote);
+    this.navCtrl.push(DescpacotesPage, {
+      pacote: objPacote
+    });
   }
 
 }

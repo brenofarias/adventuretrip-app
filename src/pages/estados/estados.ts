@@ -30,8 +30,8 @@ export class EstadosPage {
     console.log('ionViewDidLoad EstadosPage');
   }
 
-  pacotes(pacotes) {
-    this.pacoteservice.initializebuddy(pacotes);
+  pacotes() {
+    // this.pacoteservice.initializebuddy(pacotes);
     this.navCtrl.push('PacotesPage');
   }
 

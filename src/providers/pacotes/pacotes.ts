@@ -10,13 +10,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class PacotesProvider {
   firedata = firebase.database().ref('/pacotes');
-  pacotes: any;
+  // pacotedesc: any;
+  pacote: any;
   constructor() {
    
   }
 
-  initializebuddy(pacotes) {
-    this.pacotes = pacotes;
+  gopacotedesc(pacote) {
+    this.pacote = pacote;
+    // console.log(this.pacotedesc);
+    
   }
 
   getallpacotes() {

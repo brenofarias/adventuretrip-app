@@ -1,5 +1,9 @@
-<ion-menu [content]="content">
+<ion-menu type="push" [content]="content">
   <ion-content>
+    <ion-list>
+      <img src="../assets/imgs/go.jpg" alt="">
+      <p>Breno</p>
+    </ion-list>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}

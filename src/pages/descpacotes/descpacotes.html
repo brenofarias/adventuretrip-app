@@ -1,45 +1,19 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>descpacotes</ion-title>
-  </ion-navbar>
+  <ion-navbar color="hcolor">
+    <!-- <ion-title>{{pacote.nome}}</ion-title> -->
+  </ion-navbar> 
 
 </ion-header>
 
-<ion-content padding>
-  <ion-card>
-    <ion-slides>
-
-      <ion-slide>
-        <img src="../../assets/imgs/go.jpg" alt="">
-      </ion-slide>
-
-      <ion-slide style="background-color:red;">
-        <img src="../../assets/imgs/go.jpg" alt="">
-
-      </ion-slide>
-
-      <ion-slide style="background-color:green;">
-        <img src="../../assets/imgs/go.jpg" alt="">
-
-      </ion-slide>
-
-      <ion-slide style="background-color: red;">
-        <img src="../../assets/imgs/go.jpg" alt="">
-        <ion-fab right top>
-          <button ion-fab>
-            <ion-icon name="pin"></ion-icon>
-          </button>
-        </ion-fab>
-      </ion-slide>
-
-    </ion-slides>
+<ion-content >
+  <img [src]="pacote.foto" alt="">
+  <ion-card padding> 
     <ion-card-header>
-      Header
+      {{pacote.nome}}
     </ion-card-header>
     <ion-card-content>
-      The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+      {{pacote.descricao}}
     </ion-card-content>
   </ion-card>
-  <button ion-button color="secondary" outline full class="otario">Compra ai otario</button>
 </ion-content>

@@ -26,7 +26,7 @@ export class BuddychatPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public chatservice: ChatProvider, 
               public events: Events, public loadingCtrl: LoadingController, public imgstore: ImghandlerProvider,
               public zone: NgZone) {  
-    this.buddy = this.chatservice.buddy;
+    this.buddy = this.chatservice.buddy;    
     this.photoURL = firebase.auth().currentUser.photoURL;
     this.scrollto();
     this.events.subscribe('newmessage', () => {

@@ -19,7 +19,7 @@
 
 <ion-content class="card-background-page">
 
-  <ion-card *ngFor="let key of filteredestados" (click)="pacotes(item)">
+  <ion-card *ngFor="let key of filteredestados" (click)="pacotes()">
     <img src="{{key.photoUrl}}">
     <div class="card-title">{{key.nome}}</div>
     <div class="card-subtitle"> EX: 20 locais de aventura </div>
