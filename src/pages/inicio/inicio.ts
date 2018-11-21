@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
-import { DescpacotesPage } from '../descpacotes/descpacotes';
 
 /**
  * Generated class for the InicioPage page.
@@ -30,8 +29,7 @@ export class InicioPage {
   }
   
   cadastro(){
-    // this.navCtrl.push(SignupPage);
-    this.navCtrl.push(DescpacotesPage);
+    this.navCtrl.push(SignupPage);
   }
 
 

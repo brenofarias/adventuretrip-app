@@ -30,9 +30,11 @@ export class EstadosPage {
     console.log('ionViewDidLoad EstadosPage');
   }
 
-  pacotes() {
+  pacotes(objEstado) {
     // this.pacoteservice.initializebuddy(pacotes);
-    this.navCtrl.push('PacotesPage');
+    this.navCtrl.push('PacotesPage', {
+      estado: objEstado
+    });
   }
 
   tabsPage() {

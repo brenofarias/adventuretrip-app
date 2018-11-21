@@ -20,7 +20,7 @@ export class TabsPage {
   // tab3: string = "EstadosPage";
 
 
-  constructor() {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
 

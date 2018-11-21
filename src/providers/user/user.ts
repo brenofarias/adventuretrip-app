@@ -25,6 +25,7 @@ export class UserProvider {
         }).then(() => {
           this.firedata.child(this.afireauth.auth.currentUser.uid).set({
             uid: this.afireauth.auth.currentUser.uid,
+            email: newuser.email,
             displayName: newuser.displayName,
             nascimento: newuser.nascimento,
             cpf: newuser.cpf,

@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
   <div class="profile-image" (click)="editimage()">
     <img src="{{avatar}}">
   </div>
@@ -25,6 +25,9 @@
   </div>
   <div class="spacer" style="height: 10px;"></div>
   <div>
-    <button ion-button round outline color="danger" (click)="logout()">Sair</button>
+    <button ion-button block round outline color="hcolor" (click)="logout()">Sair</button>
+  </div>
+  <div>
+    <button ion-button round outline color="danger" (click)="delete()">Deletar conta</button>
   </div>
 </ion-content>

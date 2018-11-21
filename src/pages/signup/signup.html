@@ -2,7 +2,7 @@
 
   <ion-card>
     <ion-card-header class="oi">
-      Criar conta
+      CRIAR CONTA
     </ion-card-header>
     <ion-card-content>
       <ion-list>
@@ -12,12 +12,12 @@
           <ion-input type="text" [(ngModel)]="newuser.displayName"></ion-input>
         </ion-item>
 
-        <br />
-        <ion-item class="o">
+        <!-- <br /> -->
+        <ion-item class="o" padding-top>
           <ion-label>Ano de nascimento</ion-label>
           <ion-datetime displayFormat="YYYY" [(ngModel)]="newuser.nascimento"></ion-datetime>
         </ion-item>
-        <br />
+        <!-- <br /> -->
 
         <ion-item class="o">
           <ion-label>Sexo</ion-label>
@@ -42,8 +42,8 @@
           <ion-input type="password" [(ngModel)]="newuser.password"></ion-input>
         </ion-item>
 
-        <button ion-button full color="secundary" (click)="signup()">Criar conta</button>
-        <button ion-button full color="danger" (click)="goBack()">Voltar</button>
+        <button ion-button block outline color="light" (click)="signup()"outline>Criar conta</button>
+        <button ion-button block outline color="light" (click)="goBack()"outline>Voltar</button>
       </ion-list>
     </ion-card-content>
   </ion-card>

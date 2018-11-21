@@ -22,6 +22,7 @@ import { RequestsProvider } from '../providers/requests/requests';
 import { ChatProvider } from '../providers/chat/chat';
 import { GroupsProvider } from '../providers/groups/groups';
 import { InicioPage } from '../pages/inicio/inicio';
+import { Stripe } from '@ionic-native/stripe';
 import { SignupPage } from '../pages/signup/signup';
 import { ChatsPage } from '../pages/chats/chats';
 import { GroupsPage } from '../pages/groups/groups';
@@ -29,16 +30,20 @@ import { ProfilePage } from '../pages/profile/profile';
 import { EstadosProvider } from '../providers/estados/estados';
 import { PacotesProvider } from '../providers/pacotes/pacotes';
 import { DescpacotesPage } from '../pages/descpacotes/descpacotes';
+import { PaymentProvider } from '../providers/payment/payment';
+import { PagamentoPage } from '../pages/pagamento/pagamento';
+import { AppProvider } from '../providers/app/app';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
-    InicioPage,
+    // InicioPage,
     SignupPage, 
     ChatsPage,
     GroupsPage,
     ProfilePage,
+    PagamentoPage,
     DescpacotesPage
   ],
   imports: [
@@ -50,11 +55,12 @@ import { DescpacotesPage } from '../pages/descpacotes/descpacotes';
   entryComponents: [ 
     MyApp,
     LoginPage,
-    InicioPage,
+    // InicioPage,
     SignupPage,
     ChatsPage,
     GroupsPage,
     ProfilePage,
+    PagamentoPage,
     DescpacotesPage
   ],
   providers: [
@@ -63,6 +69,7 @@ import { DescpacotesPage } from '../pages/descpacotes/descpacotes';
     AuthProvider,
     AngularFireAuth,
     File,
+    Stripe,
     FilePath,
     FileChooser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -75,7 +82,9 @@ import { DescpacotesPage } from '../pages/descpacotes/descpacotes';
     ChatProvider,
     GroupsProvider,
     EstadosProvider,
-    PacotesProvider
+    PacotesProvider,
+    PaymentProvider,
+    AppProvider
   ]
 })
 export class AppModule {}

@@ -1,20 +1,21 @@
 page-signup {
+    height: auto;
     .background {
-		background-image: url('../../assets/imgs/bg.jpg');
-		background-size: 100%;
-	}
-
-    @keyframes colorchange{
-        0%{background-position: 0% 99%}
-        50%{background-position: 100% 1%}
-        100%{background-position: 10% 90%}
-    }//Fundo colorido orde de passagem de cores//
+        background-image: url('../../assets/imgs/img_cadastro.jpg');
+        background-repeat: no-repeat;
+		background-size: 100% 100%;
+    }
+    
+    input {
+        color: #FFF;
+    }
       
     ion-card.card {
         box-shadow: none;
         background: rgba(0,0,0,0.4px);
         border-radius: 10px;
         z-index: 100;
+        margin-top: 5vh;
         color: #000;
     }//Fundo tranparente preto kk//
       
@@ -27,16 +28,12 @@ page-signup {
         border-bottom: #FFF solid 1px;
 	} //linha azul nos campos de texto//
 		
-    h1{
-        font: arial;
-        font-size: 3em;
-        font-weight: lighter;
-        color: #000000;
-    }
     .oi{
         color: #ffffff;
-        font: arial;
+        // font: arial;
         text-align: center;
+        font-size: 15pt;
+        font-weight: bold;
     }
     .o{
         color: #ffffff;

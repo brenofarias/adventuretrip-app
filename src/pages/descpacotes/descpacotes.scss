@@ -1,3 +1,45 @@
-page-descpacotes {
+page-descpacotes,
+.trip-detail {
 
+  ul.highlight {
+    padding-left: 0;
+    font-size: 1.2rem;
+    list-style: none;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  // change text-sm size
+  .text-sm {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  // booking form style
+  .booking-form {
+    border: 1px solid rgba(204, 204, 204, 0.534);
+    box-shadow: .5px .5px .5px #ccc;
+		border-radius: 1rem;
+
+    ion-grid {
+
+      ion-row {
+
+        ion-col {
+          padding: 0;
+        }
+      }
+    }
+
+    .form-bottom {
+      display: flex;
+      align-items: center;
+
+      .pull-right {
+        margin-left: auto;
+      }
+    }
+  }
 }

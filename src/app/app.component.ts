@@ -1,15 +1,17 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import { InicioPage } from '../pages/inicio/inicio';
-import { EstadosPage } from '../pages/estados/estados';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import { InicioPage } from '../pages/inicio/inicio';
+// import { EstadosPage } from '../pages/estados/estados';
+import { AppProvider } from '../providers/app/app'
 import { ChatsPage } from '../pages/chats/chats';
 import { GroupsPage } from '../pages/groups/groups';
 import { ProfilePage } from '../pages/profile/profile';
+import { timer } from 'rxjs/observable/timer';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,24 +19,25 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
-  rootPage:any = InicioPage;
+  rootPage:any = 'InicioPage';
   
-  pages: Array<{title: string, component: any}>;
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyA6DmpTC4cDvFlFsNKgxkD9-8bWhC7Rc7Q",
-      authDomain: "adventuretrip-88f36.firebaseapp.com",
-      databaseURL: "https://adventuretrip-88f36.firebaseio.com",
-      projectId: "adventuretrip-88f36",
-      storageBucket: "adventuretrip-88f36.appspot.com",
-      messagingSenderId: "242131512604"
-    })
+  pages: Array<{title: string, component: any, icon: string}>;
+  avatar;
+  nome;
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public userservice: AppProvider, public zone: NgZone) {
+    // firebase.initializeApp({
+    //   apiKey: "AIzaSyA6DmpTC4cDvFlFsNKgxkD9-8bWhC7Rc7Q",
+    //   authDomain: "adventuretrip-88f36.firebaseapp.com",
+    //   databaseURL: "https://adventuretrip-88f36.firebaseio.com",
+    //   projectId: "adventuretrip-88f36",
+    //   storageBucket: "adventuretrip-88f36.appspot.com",
+    //   messagingSenderId: "242131512604"
+    // })
 
     this.pages = [
-      { title: 'Chat', component: ChatsPage },
-      { title: 'Grupos', component: GroupsPage },
-      { title: 'Perfil', component: ProfilePage }
+      { title: 'Chat', component: ChatsPage, icon: "chatbubbles" },
+      { title: 'Grupos', component: GroupsPage, icon: "contacts" },
+      { title: 'Perfil', component: ProfilePage, icon: "person" }
     ];
 
     platform.ready().then(() => {
@@ -42,6 +45,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      
     });
   }
   
@@ -51,4 +55,15 @@ export class MyApp {
     this.nav.push(page.component);
   }
   
+  loaduserdetails() {
+    this.userservice.getuserdetails().then((res: any) => {
+      this.nome = res.displayName;
+      this.zone.run(() => {
+        this.avatar = res.photoURL;
+      })
+    })
+    console.log(this.nome);
+    
+  }
+
 }

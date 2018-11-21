@@ -1,29 +1,19 @@
-<!--
-  Generated template for the EstadosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
 <ion-header>
-
   <ion-navbar color="hcolor">
     <ion-title>Escolha seu Destino</ion-title>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content class="card-background-page">
 
-  <ion-card *ngFor="let key of filteredestados" (click)="pacotes()">
+  <ion-card *ngFor="let key of filteredestados" (click)="pacotes(key)">
     <img src="{{key.photoUrl}}">
     <div class="card-title">{{key.nome}}</div>
-    <div class="card-subtitle"> EX: 20 locais de aventura </div>
-    
+    <!-- <div class="card-subtitle"> EX: 20 locais de aventura </div>     -->
   </ion-card>
+
 
 </ion-content>

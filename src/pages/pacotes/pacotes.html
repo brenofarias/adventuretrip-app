@@ -7,14 +7,36 @@
 <ion-header>
 
   <ion-navbar color="hcolor">
-    <ion-title>Pacotes</ion-title>
-  </ion-navbar> 
+    <ion-title>
+      <span ion-text>Pacotes</span>
+    </ion-title>
+  </ion-navbar>
 
 </ion-header>
 
+<ion-content padding class="trips detail-bg">
+  <!--list of trips-->
+  <div class="trip card" *ngFor="let p of pacotes" tappable (click)="descpacotes(p)" margin-bottom>
+    <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + p.foto + ')'}">
+      <div class="background-filter rlt">
+        <div class="align-bottom" padding-left padding-right>
+          <h1 ion-text color="light">{{ p.nome }}</h1>
+          <h6 ion-text color="light">{{ p.preco | currency:'BRL':true }}</h6>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div style="background-color: #2E8B57; height: 5vh">
+      <ion-icon padding-left color="light" name="person" style="margin-top: 1vh"></ion-icon>
+      <!-- <span ion-text color="light" padding-vertical>{{ p.preco }}</span> -->
+      <span style="margin-left: 15vw" ion-text color="light" padding-vertical><strong>por adulto</strong> (crianças tem <span ion-text>50%
+          OFF</span>)</span>
+    </div>
+  </div>
+</ion-content>
 
-<ion-content padding>
-  <ion-card *ngFor="let p of pacotes" (click)="descpacotes(p)">
+<!-- <ion-content padding class="trips detail-bg"> -->
+<!-- <ion-card *ngFor="let p of pacotes" (click)="descpacotes(p)">
     <ion-slides>
 
       <ion-slide>
@@ -42,6 +64,5 @@
       <ion-icon name="sunny"></ion-icon> 4 ou 5 diárias   <ion-icon name="cafe" padding-left></ion-icon> Café da manhã
       <p text-end style="color: rgb(48, 219, 48);"><span>R$</span><strong style="font-size: 24px;">{{p.preco}}</strong></p>
     </ion-card-content>
-  </ion-card>
-  <p></p>
-</ion-content>
+  </ion-card> -->
+<!-- </ion-content> -->

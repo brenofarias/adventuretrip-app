@@ -1,0 +1,24 @@
+<!--
+  Generated template for the CardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>card</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-input type="number" [(ngModel)]="cardinfo.number" placeholder="Número do Cartão"></ion-input>
+  <ion-input type="number" [(ngModel)]="cardinfo.expMonth" placeholder="Mês de Validade"></ion-input>
+  <ion-input type="number" [(ngModel)]="cardinfo.expYear" placeholder="Ano de Validade"></ion-input>
+  <ion-input type="number" [(ngModel)]="cardinfo.cvc" placeholder="CVC"></ion-input>
+  <button ion-button (click)="pay()"> Pay Now </button>
+
+</ion-content>

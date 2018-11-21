@@ -1,5 +1,13 @@
-<ion-tabs color="hcolor">
-  <ion-tab [root]="tab1" tabTitle="Chats" tabIcon="chatbubbles" tabsHideOnSubPages="true"></ion-tab>
-  <ion-tab [root]="tab2" tabTitle="Grupos" tabIcon="contacts"></ion-tab>
-  <!-- <ion-tab [root]="tab3" tabIcon="md-arrow-round-back"></ion-tab> -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Lists</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-tabs>
+  <ion-tab tabIcon="checkmark" tabTitle="Todos" [root]="tab1"></ion-tab>
+  <ion-tab tabIcon="cart" tabTitle="Groceries" [root]="tab2"></ion-tab>
 </ion-tabs>

@@ -2,8 +2,8 @@
 
   <ion-card>
 
-    <ion-card-header class="oi">
-      Login
+    <ion-card-header class="oi" padding-top>
+      LOGIN
     </ion-card-header>
 
     <ion-card-content>
@@ -11,7 +11,7 @@
 
         <ion-item>
           <ion-label floating class="o">E-mail</ion-label>
-          <ion-input type="email" [(ngModel)]="credentials.email"></ion-input>
+          <ion-input color="light" type="email" [(ngModel)]="credentials.email"></ion-input>
         </ion-item>
 
         <ion-item>
@@ -20,11 +20,11 @@
         </ion-item>
 
         <ion-item>
-          <p (click)="passwordreset()">Esqueceu a Senha? <a>Criar nova senha</a></p>
+          <p (click)="passwordreset()">Esqueceu a Senha?  <a>Criar nova senha</a></p>
         </ion-item>
 
-        <button ion-button full color="primary" (click)="signin()">Login</button>
-        <button ion-button full color="danger" (click)="signup()">Voltar</button>
+        <button ion-button block color="light" (click)="signin()"outline>Login</button>
+        <button ion-button block color="light" (click)="signup()"outline>Voltar</button>
       </ion-list>
     </ion-card-content>
 

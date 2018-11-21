@@ -1,19 +1,109 @@
 <ion-header>
 
   <ion-navbar color="hcolor">
-    <!-- <ion-title>{{pacote.nome}}</ion-title> -->
-  </ion-navbar> 
+    <ion-title>
+      <span ion-text>{{ pacote.nome }}</span>
+    </ion-title>
+  </ion-navbar>
 
 </ion-header>
 
-<ion-content >
+<ion-content class="common-bg">
   <img [src]="pacote.foto" alt="">
-  <ion-card padding> 
+  <!--<ion-card padding> 
     <ion-card-header>
       {{pacote.nome}}
     </ion-card-header>
     <ion-card-content>
       {{pacote.descricao}}
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
+
+  <ion-grid style="background-color: #2E8B57; margin-top: -2vh; padding: 2vh; border-top: 1px solid #ccc">
+    <ion-row>
+      <ion-col text-center>
+        <div>
+          <div>
+            <ion-icon name="time" class="text-white" color="light"></ion-icon>
+            <span ion-text style="color: rgb(180, 255, 212)">{{ pacote.nome }}</span>
+            <ion-icon name="checkbox-outline" margin-left color="light"></ion-icon>
+            <span ion-text style="color: rgb(180, 255, 212)" >Cancelamento gratuito</span>
+            <!-- <ion-icon name="list-box" margin-left class="text-white"></ion-icon> -->
+            <!-- <span ion-text color="black" >Electronic voucher</span> -->
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--high light-->
+  <div class="border-bottom" padding>
+    <span ion-text color="dark" class="bold">INCLUSO</span>
+    <ul class="highlight">
+      <li>
+        <ion-icon name="checkmark" color="green"></ion-icon>
+        <span ion-text color="primary">{{ pacote.nome }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <!--booking form-->
+  <div class="booking-form card round" margin>
+    <div class="border-bottom" padding>
+      <h5>{{ pacote.nome }}</h5>
+
+      <!--choose guest-->
+      <ion-grid class="filters" no-padding margin-top>
+        <ion-row>
+          <ion-col class="adult" width-70>
+            <span ion-text color="primary"><strong>{{ pacote.preco | currency:'BRL':true }}</strong> Adultos</span>
+          </ion-col>
+          <ion-col width-10 text-center>
+            <ion-icon name="remove-circle" class="text-2x" tappable (click)="minusAdult()" [hidden]="adults < 2" color="secondary"></ion-icon>
+          </ion-col>
+          <ion-col width-10 text-center>{{ adults }}</ion-col>
+          <ion-col width-10 text-center>
+            <ion-icon name="add-circle" class="text-2x" tappable (click)="plusAdult()" color="secondary"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row margin-top>
+          <ion-col width-70>
+            <span ion-text color="primary"><strong>{{ pacote.preco * 0.5 | currency:'BRL':true }}</strong> Criança (0-12
+              anos)</span>
+          </ion-col>
+          <ion-col width-10 text-center>
+            <ion-icon name="remove-circle" class="text-2x" tappable (click)="minusChildren()" [hidden]="children < 1"
+              color="secondary"></ion-icon>
+          </ion-col>
+          <ion-col width-10 text-center>{{ children }}</ion-col>
+          <ion-col width-10 text-center>
+            <ion-icon name="add-circle" class="text-2x" tappable (click)="plusChildren()" color="secondary"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div padding class="form-bottom">
+            <!-- <span ion-text color="dark" class="bold">{{ adults }} Adultos</span> -->
+            <!-- <span ion-text color="dark" class="bold">{{ children }} Crianças</span> -->
+      <!--booking button -->
+      <button ion-button class="pull-right" style="background-color: #2E8B57" tappable (click)="checkout()">Comprar agora {{ adults *
+        pacote.preco +
+        children * pacote.preco * 0.5 | currency:'BRL':true }}
+      </button>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <!--description-->
+  <div class="border-bottom" padding>
+    <span ion-text color="primary" class="bold">DESCRIÇÃO</span>
+    <p ion-text>{{ pacote.descricao }}</p>
+  </div>
+
+  <!--address-->
+  <div class="border-bottom" padding>
+    <span ion-text color="primary" class="bold">LOCALIZAÇÃO</span>
+    <p ion-text>{{ pacote.nome }}</p>
+  </div>
+
 </ion-content>

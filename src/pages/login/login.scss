@@ -1,9 +1,15 @@
 page-login {
+	height: auto;
 	.background{
-		background-image: url('../../assets/imgs/bg.jpg');
+        background-image: url('../../assets/imgs/img_cadastro.jpg');
+        background-repeat: no-repeat;
 		background-size: 100% 100%;
 	}// cores do fundo//
 	
+	input {
+		color: #FFF;
+	}
+
 	@keyframes colorchange{
 		0%{background-position: 0% 99%}
 		50%{background-position: 100% 1%}
@@ -36,9 +42,11 @@ page-login {
 	}
 	  
 	.oi{
-		color: #ffffff;
-		font: arial;
-		text-align: center;
+        color: #ffffff;
+        // font: arial;
+        text-align: center;
+        font-size: 15pt;
+        font-weight: bold;
 	}
 		
 	.o{

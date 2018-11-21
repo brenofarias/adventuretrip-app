@@ -4,6 +4,7 @@ import { ImghandlerProvider } from '../../providers/imghandler/imghandler';
 import { UserProvider } from '../../providers/user/user';
 import firebase from 'firebase';
 import { LoginPage } from '../login/login';
+import { InicioPage } from '../inicio/inicio';
 
 /**
  * Generated class for the ProfilePage page.
@@ -52,7 +53,7 @@ export class ProfilePage {
           })
         }
       }).catch((err) => {
-        statusalert.setTitle('Erro'); 
+        statusalert.setTitle('Erro');
         statusalert.setSubTitle('Sua foto de perfil não foi alterado!!');
         statusalert.present();
       })
@@ -105,11 +106,22 @@ export class ProfilePage {
 
   logout() {
     firebase.auth().signOut().then(() => {
-      this.navCtrl.parent.parent.setRoot(LoginPage);
+      this.navCtrl.setRoot(LoginPage);
     })
   }
 
   back() {
     this.navCtrl.setRoot('EstadosPage');
+  }
+
+  delete() {
+    var user = firebase.auth().currentUser;
+    user.delete().then(function () {
+      // User deleted.
+      this.navCtrl.setRoot(InicioPage);
+    }).catch(function (error) {
+      // An error happened.
+      console.log(error);
+    });
   }
 }
