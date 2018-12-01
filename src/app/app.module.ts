@@ -30,7 +30,6 @@ import { PagamentoPage } from '../pages/pagamento/pagamento';
 import { AppProvider } from '../providers/app/app';
 import { InicioPage } from '../pages/inicio/inicio';
 import { BrMaskerModule } from 'brmasker-ionic-3';
-// import {GoogleMaps} from '@ionic-native/google-maps';
 
 
 @NgModule({
@@ -77,7 +76,6 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     PacotesProvider,
     PaymentProvider,
     AppProvider,
-    // GoogleMaps
   ]
 })
 export class AppModule {}

@@ -26,12 +26,12 @@ export class MyApp {
   nome;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public zone: NgZone) {
     firebase.initializeApp({
-      apiKey: "AIzaSyAlBM0-CY8ybKfTiYaW9jYxK6Lwte2hzMY",
-      authDomain: "chat-603cb.firebaseapp.com",
-      databaseURL: "https://chat-603cb.firebaseio.com",
-      projectId: "chat-603cb",
-      storageBucket: "chat-603cb.appspot.com",
-      messagingSenderId: "574231964652"
+      apiKey: "AIzaSyBgE7b0psib4yyEFT5ApzBkZeaLTtD3ldo",
+      authDomain: "adventuretrip-b4a91.firebaseapp.com",
+      databaseURL: "https://adventuretrip-b4a91.firebaseio.com",
+      projectId: "adventuretrip-b4a91",
+      storageBucket: "adventuretrip-b4a91.appspot.com",
+      messagingSenderId: "234884577159"
     })
 
 
