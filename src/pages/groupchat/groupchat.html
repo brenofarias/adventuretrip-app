@@ -2,11 +2,6 @@
 
   <ion-navbar color="hcolor">
     <ion-title>{{groupName}}</ion-title>
-    <ion-buttons>
-      <button ion-button icon-only (click)="back()">
-        <ion-icon name="md-arrow-back"></ion-icon>
-      </button>
-    </ion-buttons>
 
     <ion-buttons end>
       <button *ngIf="owner" ion-button icon-only (click)="presentOwnerSheet()">

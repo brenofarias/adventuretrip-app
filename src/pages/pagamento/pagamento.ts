@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Stripe } from '@ionic-native/stripe';
-/**
- * Generated class for the PagamentoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { PaymentProvider } from '../../providers/payment/payment';
 
 @IonicPage()
 @Component({
@@ -14,16 +9,19 @@ import { Stripe } from '@ionic-native/stripe';
   templateUrl: 'pagamento.html',
 })
 export class PagamentoPage {
-  cardNumber: string;
-  cardMonth: number; 
-  cardYear: number;
-  cardCVV: string;
+  cardinfo: any = {
+    number: '',
+    expMonth: '',
+    expYear: '',
+    cvc: ''
+  }
   pacote;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public stripe: Stripe, public alertCtrl: AlertController) {
+  total;
+  constructor(public navCtrl: NavController, public payment: PaymentProvider, public navParams: NavParams, public stripe: Stripe, public alertCtrl: AlertController) {
     this.pacote = navParams.get('pacote');
-    console.log(this.pacote.foto);
-    
+    this.total = navParams.get('total');
+    // console.log(this.pacote.foto);
+
 
   }
 
@@ -33,6 +31,26 @@ export class PagamentoPage {
 
   carddetails() {
     this.navCtrl.push('CardPage');
+  }
+
+  pay() {
+    let statusalert = this.alertCtrl.create({
+      buttons: ['Okay']
+    });
+    this.stripe.setPublishableKey('pk_test_a5Wd10bULfACYUuyP4r0PO3I');
+    this.stripe.createCardToken(this.cardinfo).then((token) => {
+      // let objString = JSON.stringify(token);
+      let pagamento = 'stripetoken=' + token + '&amount=' + this.total;
+      this.payment.dopayment(token).then(() => {
+      })
+      statusalert.setTitle('Foi');
+      statusalert.setSubTitle('Pagamento feito!! ' + token);
+      statusalert.present();
+    }).catch(error => {
+      statusalert.setTitle('Erro');
+      statusalert.setSubTitle(error);
+      statusalert.present();
+    })
   }
 
   // validateCard() {
@@ -58,6 +76,6 @@ export class PagamentoPage {
   //       statusalert.present();
   //     });
   // }
-} 
+}
 
-  
+

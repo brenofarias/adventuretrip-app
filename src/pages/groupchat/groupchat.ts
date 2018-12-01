@@ -81,6 +81,15 @@ export class GroupchatPage {
           }
         },
         {
+          text: 'Compartilhar Pacote',
+          icon: 'share-alt',
+          handler: () => {
+            // this.navCtrl.push('GroupbuddiesPage');
+            // console.log(pacote);
+            
+          }
+        },
+        {
           text: 'Remover Membro',
           icon: 'remove-circle',
           handler: () => {
@@ -163,7 +172,7 @@ export class GroupchatPage {
   scrollto() {
     setTimeout(() => {
       this.content.scrollToBottom();
-    }, 1000);
+    }, 100);
   }
 
   sendpicmsg() {

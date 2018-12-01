@@ -47,7 +47,7 @@ export class ProfilepicPage {
     this.userservice.updateimage(this.imgurl).then((res: any) => {
       loader.dismiss();
       if (res.success) {
-        this.navCtrl.setRoot('EstadosPage');
+        this.navCtrl.setRoot('MenuPage');
       }
       else {
         alert(res);
@@ -56,7 +56,7 @@ export class ProfilepicPage {
   }
 
   proceed() {
-    this.navCtrl.setRoot('EstadosPage');
+    this.navCtrl.setRoot('MenuPage');
   }
 
 }

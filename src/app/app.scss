@@ -1,59 +1,59 @@
 ion-menu {
 
-    .content {
-    }
+    // .content {
+    // }
 
-    button {
-        background-color: transparent !important;
-    }
+    // button {
+    //     background-color: transparent !important;
+    // }
 
-    .title.title-md{
-        position: absolute;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-        height: 100%;
-        width: 70%;
-        text-align: center;
-    }
-    .nome{
-        text-align: center;
-    } 
+    // .title.title-md{
+    //     position: absolute;
+    //     left: 50%;
+    //     top: 0;
+    //     transform: translateX(-50%);
+    //     height: 100%;
+    //     width: 70%;
+    //     text-align: center;
+    // }
+    // .nome{
+    //     text-align: center;
+    // } 
     
-    ion-content {
-        -webkit-box-shadow: none!important;
-        // background-color: transparent !important;
+    // ion-content {
+    //     -webkit-box-shadow: none!important;
+    //     // background-color: transparent !important;
 
-        .teste{
-            background-image: url('../../assets/imgs/fundo3.jpg');
-            background-size: 100% 100%;
+    //     .teste{
+    //         background-image: url('../../assets/imgs/fundo3.jpg');
+    //         background-size: 100% 100%;
 
-        }
+    //     }
 
-        #nome {
-            font-size: 5vw;
-            color: #fff;
-            margin: 2vh 0 0 2vw;
-        }
+    //     #nome {
+    //         font-size: 5vw;
+    //         color: #fff;
+    //         margin: 2vh 0 0 2vw;
+    //     }
 
-        #email {
-            margin: 0 0 0 2vw;
-            color: #fff;
-        }
+    //     #email {
+    //         margin: 0 0 0 2vw;
+    //         color: #fff;
+    //     }
 
-        img {
-            height: 20vw;
-            width: 20vw;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 2vh 0 0 2vw;
-        }
-    }
+    //     img {
+    //         height: 20vw;
+    //         width: 20vw;
+    //         border: 1px solid #ccc;
+    //         border-radius: 50%;
+    //         display: inline-block;
+    //         margin: 2vh 0 0 2vw;
+    //     }
+    // }
 
-    .hide-card{
-        background: linear-gradient(360deg, #DEB887, #E0FFFF, #E0FFFF, #E0FFFF, #E0FFFF);
-        background-size: 100% 100%; 
-    }
+    // .hide-card{
+    //     background: linear-gradient(360deg, #DEB887, #E0FFFF, #E0FFFF, #E0FFFF, #E0FFFF);
+    //     background-size: 100% 100%; 
+    // }
 }
 

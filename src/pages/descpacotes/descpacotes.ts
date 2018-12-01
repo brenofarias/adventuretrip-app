@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController  } from 'ionic-angular';
 import { PacotesProvider } from '../../providers/pacotes/pacotes';
 import { PagamentoPage } from '../pagamento/pagamento';
-
-/**
- * Generated class for the DescpacotesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+// import {
+//   GoogleMaps,
+//   GoogleMap,
+//   GoogleMapsEvent,
+//   GoogleMapOptions,
+//   CameraPosition,
+//   MarkerOptions,
+//   Marker,
+//   Environment
+// } from '@ionic-native/google-maps';
 
 @IonicPage()
 @Component({
@@ -30,7 +33,12 @@ export class DescpacotesPage {
     preco: ''
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
+  total;
+  moveon = true;
+
+  // map: GoogleMap;
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
     // this.pacote = this.pacoteservice.pacote;
     // console.log(this.pacote);
     this.pacote = navParams.get('pacote');
@@ -39,7 +47,9 @@ export class DescpacotesPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DescpacotesPage');
+    // this.loadMap();
+    this.moveon = false;
+
   }
 
   // minus adult when click minus button
@@ -64,9 +74,59 @@ export class DescpacotesPage {
 
   // go to checkout page
   checkout() {
+    // console.log(this.total);
+    
     this.navCtrl.push(PagamentoPage, {
-      pacote: this.pacote
+      pacote: this.pacote,
+      total: this.total
     });
   }
+
+  addfav(pacote) {
+    this.pacoteservice.addfav(pacote).then(() => {
+      let newalert = this.alertCtrl.create({
+        title: 'Favorito',
+        subTitle: 'Você adicionou este pacote como favorito',
+        buttons: ['OK']
+      });
+      newalert.present();
+    })
+    // console.log(pacote);
+  }
+
+  // loadMap() {
+
+  //   // This code is necessary for browser
+  //   Environment.setEnv({
+  //     'API_KEY_FOR_BROWSER_RELEASE': '(your api key for `https://`)',
+  //     'API_KEY_FOR_BROWSER_DEBUG': '(your api key for `http://`)'
+  //   });
+
+  //   let mapOptions: GoogleMapOptions = {
+  //     camera: {
+  //        target: {
+  //          lat: 43.0741904,
+  //          lng: -89.3809802
+  //        },
+  //        zoom: 18,
+  //        tilt: 30
+  //      }
+  //   };
+
+  //   this.map = GoogleMaps.create('map_canvas', mapOptions);
+
+  //   let marker: Marker = this.map.addMarkerSync({
+  //     title: 'Ionic',
+  //     icon: 'blue',
+  //     animation: 'DROP',
+  //     position: {
+  //       lat: 43.0741904,
+  //       lng: -89.3809802
+  //     }
+  //   });
+  //   marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+  //     alert('clicked');
+  //   });
+  // }
 
 }

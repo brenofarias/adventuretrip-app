@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginPage } from '../login/login';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 
 /**
@@ -17,15 +16,19 @@ import { SignupPage } from '../signup/signup';
 })
 export class InicioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InicioPage');
+  ionViewDidEnter() {
+    this.menu.swipeEnable(false);
   }
+
+  // ionViewDidLeave() {
+  //   this.menu.enable(true);
+  // }
 
   login(){
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.push('LoginPage');
   }
   
   cadastro(){

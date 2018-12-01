@@ -12,24 +12,22 @@
           <ion-input type="text" [(ngModel)]="newuser.displayName"></ion-input>
         </ion-item>
 
-        <!-- <br /> -->
-        <ion-item class="o" padding-top>
+        <!-- <ion-item class="o" padding-top>
           <ion-label>Ano de nascimento</ion-label>
           <ion-datetime displayFormat="YYYY" [(ngModel)]="newuser.nascimento"></ion-datetime>
-        </ion-item>
-        <!-- <br /> -->
+        </ion-item> -->
 
-        <ion-item class="o">
+        <!-- <ion-item class="o">
           <ion-label>Sexo</ion-label>
           <ion-select [(ngModel)]="newuser.sexo">
             <ion-option name="sexo" value="M">Masculino</ion-option>
             <ion-option name="sexo" value="F">Feminino</ion-option>
           </ion-select>
-        </ion-item>
+        </ion-item> -->
 
         <ion-item class="o">
           <ion-label floating>CPF</ion-label>
-          <ion-input type="text" name="cpf" [(ngModel)]="newuser.cpf"></ion-input>
+          <ion-input type="text" name="cpf" [(ngModel)]="newuser.cpf" [brmasker]="{mask:'000.000.000-00', len:14, type:'num'}"></ion-input>
         </ion-item>
 
         <ion-item class="o">
@@ -39,11 +37,20 @@
 
         <ion-item class="o">
           <ion-label floating>Senha</ion-label>
-          <ion-input type="password" [(ngModel)]="newuser.password"></ion-input>
+          <ion-input [type]="isTextFieldType ? 'text' : 'password'" [(ngModel)]="newuser.password"></ion-input>
+          <button (click)="togglePasswordFieldType()" ion-button outline color="light" item-right>
+            <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'"></ion-icon>
+          </button>
         </ion-item>
 
-        <button ion-button block outline color="light" (click)="signup()"outline>Criar conta</button>
-        <button ion-button block outline color="light" (click)="goBack()"outline>Voltar</button>
+        <ion-item class="o">
+          <ion-label floating>Confirmar senha</ion-label>
+          <ion-input [type]="isTextFieldType ? 'text' : 'password'" [(ngModel)]="newuser.confirma"></ion-input>
+        </ion-item>
+
+
+        <button ion-button block outline color="light" (click)="signup()" outline>Criar conta</button>
+        <button ion-button block outline color="light" (click)="goBack()" outline>Voltar</button>
       </ion-list>
     </ion-card-content>
   </ion-card>

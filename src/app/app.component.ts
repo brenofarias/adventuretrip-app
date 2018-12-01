@@ -3,15 +3,15 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-// import firebase from 'firebase/app';
 // import 'firebase/auth';
-// import { InicioPage } from '../pages/inicio/inicio';
+import { InicioPage } from '../pages/inicio/inicio';
 // import { EstadosPage } from '../pages/estados/estados';
-import { AppProvider } from '../providers/app/app'
-import { ChatsPage } from '../pages/chats/chats';
-import { GroupsPage } from '../pages/groups/groups';
-import { ProfilePage } from '../pages/profile/profile';
-import { timer } from 'rxjs/observable/timer';
+// import { AppProvider } from '../providers/app/app'
+// import { ChatsPage } from '../pages/chats/chats';
+// import { GroupsPage } from '../pages/groups/groups';
+// import { ProfilePage } from '../pages/profile/profile';
+// import { timer } from 'rxjs/observable/timer';
+import firebase from 'firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,26 +19,21 @@ import { timer } from 'rxjs/observable/timer';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
-  rootPage:any = 'InicioPage';
+  rootPage:any = InicioPage;
   
-  pages: Array<{title: string, component: any, icon: string}>;
+  // pages: Array<{title: string, component: any, icon: string}>;
   avatar;
   nome;
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public userservice: AppProvider, public zone: NgZone) {
-    // firebase.initializeApp({
-    //   apiKey: "AIzaSyA6DmpTC4cDvFlFsNKgxkD9-8bWhC7Rc7Q",
-    //   authDomain: "adventuretrip-88f36.firebaseapp.com",
-    //   databaseURL: "https://adventuretrip-88f36.firebaseio.com",
-    //   projectId: "adventuretrip-88f36",
-    //   storageBucket: "adventuretrip-88f36.appspot.com",
-    //   messagingSenderId: "242131512604"
-    // })
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public zone: NgZone) {
+    firebase.initializeApp({
+      apiKey: "AIzaSyAlBM0-CY8ybKfTiYaW9jYxK6Lwte2hzMY",
+      authDomain: "chat-603cb.firebaseapp.com",
+      databaseURL: "https://chat-603cb.firebaseio.com",
+      projectId: "chat-603cb",
+      storageBucket: "chat-603cb.appspot.com",
+      messagingSenderId: "574231964652"
+    })
 
-    this.pages = [
-      { title: 'Chat', component: ChatsPage, icon: "chatbubbles" },
-      { title: 'Grupos', component: GroupsPage, icon: "contacts" },
-      { title: 'Perfil', component: ProfilePage, icon: "person" }
-    ];
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -49,21 +44,6 @@ export class MyApp {
     });
   }
   
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.push(page.component);
-  }
-  
-  loaduserdetails() {
-    this.userservice.getuserdetails().then((res: any) => {
-      this.nome = res.displayName;
-      this.zone.run(() => {
-        this.avatar = res.photoURL;
-      })
-    })
-    console.log(this.nome);
-    
-  }
+
 
 }

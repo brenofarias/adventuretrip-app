@@ -27,7 +27,7 @@
             <ion-icon name="time" class="text-white" color="light"></ion-icon>
             <span ion-text style="color: rgb(180, 255, 212)">{{ pacote.nome }}</span>
             <ion-icon name="checkbox-outline" margin-left color="light"></ion-icon>
-            <span ion-text style="color: rgb(180, 255, 212)" >Cancelamento gratuito</span>
+            <span ion-text style="color: rgb(180, 255, 212)">Cancelamento gratuito</span>
             <!-- <ion-icon name="list-box" margin-left class="text-white"></ion-icon> -->
             <!-- <span ion-text color="black" >Electronic voucher</span> -->
           </div>
@@ -38,11 +38,28 @@
 
   <!--high light-->
   <div class="border-bottom" padding>
+    <ion-fab right edge style="position: absolute;">
+      <button ion-fab mini (click)="addfav(pacote)">
+        <ion-icon name="heart" color="danger"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <!-- <button ion-fab style="position: absolute;">
+      <ion-icon name="heart" color="danger"></ion-icon>
+    </button> -->
     <span ion-text color="dark" class="bold">INCLUSO</span>
     <ul class="highlight">
       <li>
-        <ion-icon name="checkmark" color="green"></ion-icon>
-        <span ion-text color="primary">{{ pacote.nome }}</span>
+        <!-- <ion-icon name="checkmark" color="green"></ion-icon> -->
+        <span ion-text style="font-size: 15pt" color="primary">{{ pacote.incluso }}</span><br/>
+      </li>
+      <li>
+        <!-- <ion-icon name="checkmark" color="green"></ion-icon> -->
+        <span ion-text style="font-size: 15pt" color="primary">{{ pacote.incluso2 }}</span><br/>
+      </li>
+      <li>
+        <!-- <ion-icon name="checkmark" color="green"></ion-icon> -->
+        <span ion-text style="font-size: 15pt" color="primary">{{ pacote.incluso3 }}</span><br/>
       </li>
     </ul>
   </div>
@@ -68,7 +85,8 @@
         </ion-row>
         <ion-row margin-top>
           <ion-col width-70>
-            <span ion-text color="primary"><strong>{{ pacote.preco * 0.5 | currency:'BRL':true }}</strong> Criança (0-12
+            <span ion-text color="primary"><strong>{{ pacote.preco * 0.5 | currency:'BRL':true }}</strong> Criança
+              (0-12
               anos)</span>
           </ion-col>
           <ion-col width-10 text-center>
@@ -80,15 +98,18 @@
             <ion-icon name="add-circle" class="text-2x" tappable (click)="plusChildren()" color="secondary"></ion-icon>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <!-- <span ion-text color="primary" class="bold">TOTAL</span> -->
+          <ion-item [hidden]="!moveon">
+            <ion-input type="text" disabled="true" value="{{ adults * pacote.preco + children * pacote.preco * 0.5 }}"
+              [(ngModel)]="total"></ion-input>
+          </ion-item>
+        </ion-row>
       </ion-grid>
     </div>
     <div padding class="form-bottom">
-            <!-- <span ion-text color="dark" class="bold">{{ adults }} Adultos</span> -->
-            <!-- <span ion-text color="dark" class="bold">{{ children }} Crianças</span> -->
-      <!--booking button -->
-      <button ion-button class="pull-right" style="background-color: #2E8B57" tappable (click)="checkout()">Comprar agora {{ adults *
-        pacote.preco +
-        children * pacote.preco * 0.5 | currency:'BRL':true }}
+      <button ion-button round block outline class="pull-right" style="background-color: #2E8B57" (click)="checkout()">
+        Comprar agora {{ adults * pacote.preco + children * pacote.preco * 0.5 | currency:'BRL':true }}
       </button>
       <div class="clear"></div>
     </div>
@@ -103,7 +124,9 @@
   <!--address-->
   <div class="border-bottom" padding>
     <span ion-text color="primary" class="bold">LOCALIZAÇÃO</span>
-    <p ion-text>{{ pacote.nome }}</p>
+    <div id="map_canvas">
+
+    </div>
   </div>
 
 </ion-content>

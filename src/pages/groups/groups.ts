@@ -37,14 +37,15 @@ export class GroupsPage {
   }
 
   addgroup() {
-    let modal = this.modalCtrl.create('NewgroupPage');
-    modal.present();
+    // let modal = this.modalCtrl.create('NewgroupPage');
+    this.navCtrl.push('NewgroupPage');
+    // modal.present();
   }
 
   openchat(group) {
     this.groupservice.getintogroup(group.groupName);
-    let modal = this.modalCtrl.create('GroupchatPage', { groupName: group.groupName });
-    modal.present();
+    this.navCtrl.push('GroupchatPage', { groupName: group.groupName });
+    // modal.present();
   }
 
   back() {

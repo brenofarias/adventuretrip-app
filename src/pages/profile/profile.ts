@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { ImghandlerProvider } from '../../providers/imghandler/imghandler';
 import { UserProvider } from '../../providers/user/user';
 import firebase from 'firebase';
-import { LoginPage } from '../login/login';
 import { InicioPage } from '../inicio/inicio';
+
 
 /**
  * Generated class for the ProfilePage page.
@@ -106,22 +106,37 @@ export class ProfilePage {
 
   logout() {
     firebase.auth().signOut().then(() => {
-      this.navCtrl.setRoot(LoginPage);
+      this.navCtrl.setRoot(InicioPage);
     })
-  }
-
-  back() {
-    this.navCtrl.setRoot('EstadosPage');
   }
 
   delete() {
     var user = firebase.auth().currentUser;
-    user.delete().then(function () {
-      // User deleted.
-      this.navCtrl.setRoot(InicioPage);
-    }).catch(function (error) {
-      // An error happened.
-      console.log(error);
+    const confirm = this.alertCtrl.create({
+      title: 'Deletar Conta',
+      message: 'Você realmente quer deletar sua conta?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Aceitar',
+          handler: () => {
+            console.log('Agree clicked');
+            user.delete().then(() => {
+              this.navCtrl.setRoot(InicioPage)
+            })
+          }
+        }
+      ]
     });
+    confirm.present();
+// .catch(function (error) {
+      // An error happened.
+      // console.log(error);
+    // });
   }
 }

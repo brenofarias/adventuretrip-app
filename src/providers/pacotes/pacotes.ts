@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class PacotesProvider {
   firedata = firebase.database().ref('/pacotes');
+  fav = firebase.database().ref('/favoritos');
   // pacotedesc: any;
   pacote: any;
   constructor() {
@@ -42,6 +43,39 @@ export class PacotesProvider {
     })
     return promise;
   }
+
+  addfav(pacote) {
+    var promise = new Promise((resolve, reject) => {
+      this.fav.child(firebase.auth().currentUser.uid).push({
+        descricao: pacote.descricao,
+        estado: pacote.estado,
+        foto: pacote.foto,
+        nome: pacote.nome,
+        preco: pacote.preco
+      }).then(() => {
+        resolve({ success: true });
+      }) 
+    })
+    return promise;
+  }
+
+  getallfav() {
+    var promise = new Promise((resolve, reject) => {
+      this.fav.once('value', (snapshot) => {
+        let pacotesdata = snapshot.val();
+        let pacotes = [];
+        for (var key in pacotesdata) {
+          pacotes.push(pacotesdata[key]);
+        }
+        
+        resolve(pacotes);
+      }).catch((err) => {
+        reject(err);
+      })
+    })
+    return promise;
+  }
+
 
 
 }

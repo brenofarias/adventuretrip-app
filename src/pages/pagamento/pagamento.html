@@ -30,39 +30,11 @@
         </ion-col>
         <ion-col col-4>
           <span ion-text>Total</span>
-          <h3 ion-text color="hcolor" bold margin-top> {{ pacote.preco | currency:'BRL':true }} </h3>
+          <h3 ion-text color="hcolor" bold margin-top> {{ total | currency:'BRL':true }} </h3>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
-
-  <!--more info-->
-  <!-- <h5>Guest Details</h5>
-  <ion-card class="card round" margin-top style="border-radius: 1rem">
-
-    <ion-list no-margin>
-      <ion-item class="primary-bg">
-        <ion-avatar item-start>
-          <img src="../../assets/imgs/eu.jpg">
-        </ion-avatar>
-        <h2 ion-text class="text-white bold">João Firmino</h2>
-        <p ion-text class="text-secondary bold">User</p>
-      </ion-item>
-    </ion-list>
-
-    <div padding>
-      <h5 ion-text color="secondary">Other Guests</h5>
-
-      <ion-item no-padding>
-        <ion-label color="dark" stacked>Adult 1 Name:</ion-label>
-        <ion-input type="text" placeholder="Ex. Joe Doe" value=""></ion-input>
-      </ion-item>
-      <ion-item no-padding>
-        <ion-label color="dark" stacked>Child 1 Name:</ion-label>
-        <ion-input type="text" placeholder="Ex. Joe Doe" value=""></ion-input>
-      </ion-item>
-    </div>
-  </ion-card> -->
 
   <!--payment info-->
   <h5 color="hcolor">Método de Pagamento</h5>
@@ -99,24 +71,24 @@
         <ion-row>
           <ion-col>
             <ion-item no-padding>
-              <ion-input placeholder="Número do Cartão" type="number"></ion-input>
+              <ion-input placeholder="Número do Cartão" type="number" [(ngModel)]="cardinfo.number"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col col-4>
             <ion-item no-padding>
-              <ion-input placeholder="MM" type="number"></ion-input>
+              <ion-input placeholder="MM" type="number" [(ngModel)]="cardinfo.expMonth"></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-4>
             <ion-item no-padding>
-              <ion-input placeholder="YYYY" type="number"></ion-input>
+              <ion-input placeholder="YYYY" type="number" [(ngModel)]="cardinfo.expYear"></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-4>
             <ion-item no-padding>
-              <ion-input placeholder="CVV" type="number"></ion-input>
+              <ion-input placeholder="CVV" type="number" [(ngModel)]="cardinfo.cvc"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -149,7 +121,7 @@
   </div>
 
   <!--submit button-->
-  <button ion-button outline margin-top round block tappable color="hcolor" (click)="send()">PAGAR</button>
+  <button ion-button outline margin-top round block tappable color="hcolor" (click)="pay()">PAGAR</button>
 </ion-content>
 
 <!-- <ion-content> -->

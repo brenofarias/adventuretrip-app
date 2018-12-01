@@ -22,7 +22,7 @@ export class BuddiesPage {
   temparr = [];
   filteredusers = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public userservice: UserProvider,
-              public alertCtrl: AlertController, public requestservice: RequestsProvider) {
+    public alertCtrl: AlertController, public requestservice: RequestsProvider) {
     this.userservice.getallusers().then((res: any) => {
       this.filteredusers = res;
       this.temparr = res;
@@ -32,7 +32,7 @@ export class BuddiesPage {
   ionViewDidLoad() {
   }
 
-  searchuser(searchbar) { 
+  searchuser(searchbar) {
     this.filteredusers = this.temparr;
     var q = searchbar.target.value;
     if (q.trim() == '') {
@@ -51,14 +51,14 @@ export class BuddiesPage {
     this.newrequest.sender = firebase.auth().currentUser.uid;
     this.newrequest.recipient = recipient.uid;
     if (this.newrequest.sender === this.newrequest.recipient)
-      alert('Vocês são amigos');
+      alert('Vocês já são amigos!');
     else {
       let successalert = this.alertCtrl.create({
-        title: 'Pedido de amizade enviado',
-        subTitle: 'Seu pedido foi enviado para ' + recipient.displayName,
-        buttons: ['Ok']
+        title: 'Solicitação enviada',
+        subTitle: 'Sua solicitação de amizade foi enviada para ' + recipient.displayName,
+        buttons: ['ok']
       });
-    
+
       this.requestservice.sendrequest(this.newrequest).then((res: any) => {
         if (res.success) {
           successalert.present();

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 
 import { usercreds } from '../../models/interfaces/usercreds';
 
@@ -12,19 +12,23 @@ import { InicioPage } from '../inicio/inicio';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  login: any  = {
+  login: any = {
     email: '',
     senha: ''
   }
 
   credentials = {} as usercreds;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authservice: AuthProvider,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController, public menu: MenuController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  ionViewDidEnter() {
+    this.menu.swipeEnable(false);
   }
+
+  // ionViewDidLeave() {
+  //   this.menu.enable(true);
+  // }
 
   signin() {
     var toaster = this.toastCtrl.create({
@@ -35,12 +39,11 @@ export class LoginPage {
     if (this.credentials.email == '' || this.credentials.password == '') {
       toaster.setMessage('Preencha todos os campos');
       toaster.present();
-    }else {
+    } else {
       this.authservice.login(this.credentials).then((res: any) => {
-        if (!res.code)
-          this.navCtrl.setRoot('EstadosPage');
-        else
-          alert(res)
+        if (!res.code) {
+          this.navCtrl.setRoot('MenuPage');
+        }
       })
     }
 

@@ -17,6 +17,11 @@ page-descpacotes,
     line-height: 2rem;
   }
 
+  #map_canvas {
+    height: 100%;
+    width: 100%;
+  }
+
   // booking form style
   .booking-form {
     border: 1px solid rgba(204, 204, 204, 0.534);

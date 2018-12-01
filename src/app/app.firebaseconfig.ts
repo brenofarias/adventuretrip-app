@@ -1,10 +1,9 @@
-  // Initialize Firebase
-  export var config = {
-    apiKey: "AIzaSyA6DmpTC4cDvFlFsNKgxkD9-8bWhC7Rc7Q",
-    authDomain: "adventuretrip-88f36.firebaseapp.com",
-    databaseURL: "https://adventuretrip-88f36.firebaseio.com",
-    projectId: "adventuretrip-88f36",
-    storageBucket: "adventuretrip-88f36.appspot.com",
-    messagingSenderId: "242131512604"
-  };
-  
+// Initialize Firebase
+export var config = {
+  apiKey: "AIzaSyAlBM0-CY8ybKfTiYaW9jYxK6Lwte2hzMY",
+  authDomain: "chat-603cb.firebaseapp.com",
+  databaseURL: "https://chat-603cb.firebaseio.com",
+  projectId: "chat-603cb",
+  storageBucket: "chat-603cb.appspot.com",
+  messagingSenderId: "574231964652"
+};

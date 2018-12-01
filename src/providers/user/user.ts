@@ -27,9 +27,9 @@ export class UserProvider {
             uid: this.afireauth.auth.currentUser.uid,
             email: newuser.email,
             displayName: newuser.displayName,
-            nascimento: newuser.nascimento,
+            // nascimento: newuser.nascimento,
             cpf: newuser.cpf,
-            sexo: newuser.sexo,
+            // sexo: newuser.sexo,
             photoURL: 'https://firebasestorage.googleapis.com/v0/b/adventuretrip-88f36.appspot.com/o/profileimages%2Fperfil.png?alt=media&token=ca3c24c5-ef5b-45f0-84b6-eacdf62ea0b4'
           }).then(() => {
             resolve({ success: true });
@@ -130,6 +130,23 @@ export class UserProvider {
       })
     })
     return promise;
+  }
+
+  verificar() {
+    var user = firebase.auth().currentUser;
+    firebase.auth().languageCode = 'br';
+    var promise = new Promise((resolve, reject) => {
+      user.sendEmailVerification().then(() => {
+        // Email sent.
+        console.log("Email enviado");
+      }).catch(function (error) {
+        // An error happened.
+        console.log(error);
+        
+      });
+    })
+    return promise;
+
   }
 
 }

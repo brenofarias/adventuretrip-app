@@ -22,12 +22,10 @@ export class RequestsProvider {
 
   sendrequest(req: connreq) {
     var promise = new Promise((resolve, reject) => {
-      this.firereq.child(req.recipient).push().set({
+      this.firereq.child(req.recipient).push({
         sender: req.sender
       }).then(() => {
         resolve({ success: true });
-      }).catch((err) => {
-        resolve(err);
       })
     })
     return promise;
