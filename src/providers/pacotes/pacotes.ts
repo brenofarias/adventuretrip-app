@@ -30,7 +30,7 @@ export class PacotesProvider {
         let pacotes = [];
         for (var key in pacotesdata) {
           pacotes.push(pacotesdata[key]);
-          // console.log(key);
+          // console.log(pacotesdata[key]);
           // console.log(temparr);
           
         }
@@ -75,7 +75,5 @@ export class PacotesProvider {
     })
     return promise;
   }
-
-
 
 }

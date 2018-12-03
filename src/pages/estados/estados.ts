@@ -33,7 +33,7 @@ export class EstadosPage {
   pacotes(objEstado) {
     // this.pacoteservice.initializebuddy(pacotes);
     this.navCtrl.push('PacotesPage', {
-      estado: objEstado
+      estado: objEstado.nome
     });
   }
 

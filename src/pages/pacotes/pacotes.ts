@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PacotesProvider } from '../../providers/pacotes/pacotes';
 import { DescpacotesPage } from '../descpacotes/descpacotes';
 
-/**
- * Generated class for the PacotesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-pacotes',
@@ -17,17 +10,32 @@ import { DescpacotesPage } from '../descpacotes/descpacotes';
 })
 export class PacotesPage {
   pacotes;
+  modified;
+  filtro;
+  // nome;
   constructor(public navCtrl: NavController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
+    var nome = navParams.get('estado');
+    console.log(nome);
+    
     this.pacoteservice.getallpacotes().then((res: any) => {
       this.pacotes = [];
+      
       res.map((map) => {
         // console.log(map)
+
         this.pacotes.push(...(<any>Object).values(map))
+        this.filtro =  this.pacotes.filter(function(p) {
+          return p.estado === nome;
+        });
       });
-      console.log(this.pacotes);
+      // console.log(this.pacotes);
+
+      // console.log(this.filtro);
+      
       // console.log('resposta mais top da cidade',res);           
     })
   }
+
 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad PacotesPage');

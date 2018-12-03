@@ -21,7 +21,7 @@ export class UserProvider {
       this.afireauth.auth.createUserWithEmailAndPassword(newuser.email, newuser.password).then(() => {
         this.afireauth.auth.currentUser.updateProfile({
           displayName: newuser.displayName,
-          photoURL: 'https://firebasestorage.googleapis.com/v0/b/adventuretrip-88f36.appspot.com/o/profileimages%2Fperfil.png?alt=media&token=ca3c24c5-ef5b-45f0-84b6-eacdf62ea0b4'
+          photoURL: 'https://firebasestorage.googleapis.com/v0/b/adventuretrip-b4a91.appspot.com/o/profileimages%2Fuser.png?alt=media&token=f5986a4f-b5cc-4523-be42-df52025bf525'
         }).then(() => {
           this.firedata.child(this.afireauth.auth.currentUser.uid).set({
             uid: this.afireauth.auth.currentUser.uid,
@@ -30,7 +30,7 @@ export class UserProvider {
             // nascimento: newuser.nascimento,
             cpf: newuser.cpf,
             // sexo: newuser.sexo,
-            photoURL: 'https://firebasestorage.googleapis.com/v0/b/adventuretrip-88f36.appspot.com/o/profileimages%2Fperfil.png?alt=media&token=ca3c24c5-ef5b-45f0-84b6-eacdf62ea0b4'
+            photoURL: 'https://firebasestorage.googleapis.com/v0/b/adventuretrip-b4a91.appspot.com/o/profileimages%2Fuser.png?alt=media&token=f5986a4f-b5cc-4523-be42-df52025bf525'
           }).then(() => {
             resolve({ success: true });
           }).catch((err) => {

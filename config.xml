@@ -85,12 +85,6 @@
     <plugin name="cordova-plugin-filepath" spec="~1.4.2" />
     <plugin name="cordova-plugin-filechooser" spec="~1.0.1" />
     <plugin name="cordova-plugin-stripe" spec="1.5.3" />
-    <plugin name="cordova-plugin-googlemaps" spec="2.4.6">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyA1EDXCI-jMBDoTc8rRfhmsX277E7tqre4" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyA1EDXCI-jMBDoTc8rRfhmsX277E7tqre4" />
-        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
-        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
-    </plugin>
-    <engine name="android" spec="7.0.0" />
     <engine name="browser" spec="5.0.4" />
+    <engine name="android" spec="6.3.0" />
 </widget>

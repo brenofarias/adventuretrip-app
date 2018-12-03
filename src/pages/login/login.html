@@ -14,9 +14,17 @@
           <ion-input color="light" type="email" [(ngModel)]="credentials.email"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label floating class="o">Senha</ion-label>
           <ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
+        </ion-item> -->
+
+        <ion-item>
+          <ion-label floating class="o">Senha</ion-label>
+          <ion-input [type]="isTextFieldType ? 'text' : 'password'" [(ngModel)]="credentials.password"></ion-input>
+          <button (click)="togglePasswordFieldType()" ion-button outline color="light" item-right>
+            <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'"></ion-icon>
+          </button>
         </ion-item>
 
         <ion-item>

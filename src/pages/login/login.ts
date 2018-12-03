@@ -17,6 +17,8 @@ export class LoginPage {
     senha: ''
   }
 
+  isTextFieldType: boolean;
+
   credentials = {} as usercreds;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authservice: AuthProvider,
     public toastCtrl: ToastController, public menu: MenuController) {
@@ -24,6 +26,10 @@ export class LoginPage {
 
   ionViewDidEnter() {
     this.menu.swipeEnable(false);
+  }
+
+  togglePasswordFieldType() {
+    this.isTextFieldType = !this.isTextFieldType;
   }
 
   // ionViewDidLeave() {

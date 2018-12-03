@@ -16,7 +16,7 @@
 
 <ion-content padding class="trips detail-bg">
   <!--list of trips-->
-  <div class="trip card" *ngFor="let p of pacotes" tappable (click)="descpacotes(p)" margin-bottom>
+  <div class="trip card" *ngFor="let p of filtro" tappable (click)="descpacotes(p)" margin-bottom>
     <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + p.foto + ')'}">
       <div class="background-filter rlt">
         <div class="align-bottom" padding-left padding-right>
