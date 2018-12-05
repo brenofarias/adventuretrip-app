@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { PacotesProvider } from '../../providers/pacotes/pacotes';
+import { DescpacotesPage } from '../descpacotes/descpacotes';
 
 
 /**
@@ -37,10 +38,12 @@ export class FavoritosPage {
     let sheet = this.actionSheet.create({
       buttons: [
         {
-          text: 'Compartilhar Pacote',
-          icon: 'share-alt',
+          text: 'Comprar Pacote',
+          icon: 'card',
           handler: () => {
-            // this.navCtrl.push('GroupbuddiesPage');
+            this.navCtrl.push(DescpacotesPage, {
+              pacote: pacote
+            });
             console.log(pacote);
             
           }

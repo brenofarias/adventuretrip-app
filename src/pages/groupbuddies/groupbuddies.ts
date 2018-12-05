@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, AlertController } from 'ionic-angular';
 import { RequestsProvider } from '../../providers/requests/requests';
 import { GroupsProvider } from '../../providers/groups/groups';
  
@@ -21,7 +21,7 @@ export class GroupbuddiesPage {
   searchstring;
   tempmyfriends = [];
   newbuddy;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public requestservice: RequestsProvider,
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public requestservice: RequestsProvider,
               public events: Events, public groupservice: GroupsProvider) {
   }
 
@@ -69,8 +69,14 @@ export class GroupbuddiesPage {
   }
 
   addbuddy(buddy) {
+    let namealert = this.alertCtrl.create({
+      buttons: ['Okay']
+    });
     this.newbuddy = buddy;
-    this.groupservice.addmember(buddy);
+    this.groupservice.addmember(buddy).then(() => {
+      namealert.setMessage(buddy.displayName + " foi adicionado ao grupo");
+      namealert.present();
+    })
   }
 
 }

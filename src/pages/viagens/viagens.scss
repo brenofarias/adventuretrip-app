@@ -1,0 +1,36 @@
+page-viagens ,
+.trips {
+	.card {
+		border-radius: 1rem
+	}
+  .trip {
+    overflow: hidden;
+
+    .background {
+      background-size: 100% auto;
+      position: relative;
+      // background-position: center;
+
+      .background-filter {
+        height: 16rem;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65));
+
+        .align-bottom {
+          width: 100%;
+
+          h6 {
+            margin-top: 0;
+            position: absolute;
+            margin: 20vh 0 0 60vw;
+          }
+
+          h1 {
+            margin-top: 0;
+            position: absolute;
+            margin-top: 18vh;
+          }
+        }
+      }
+    }
+  }
+}

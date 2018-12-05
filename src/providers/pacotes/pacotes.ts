@@ -51,7 +51,11 @@ export class PacotesProvider {
         estado: pacote.estado,
         foto: pacote.foto,
         nome: pacote.nome,
-        preco: pacote.preco
+        preco: pacote.preco,
+        incluso: pacote.incluso,
+        incluso2: pacote.incluso2,
+        incluso3: pacote.incluso3
+
       }).then(() => {
         resolve({ success: true });
       }) 

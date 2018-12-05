@@ -18,11 +18,11 @@ import { LoginPage } from '../login/login';
 export class PasswordresetPage {
   email: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public userservice: UserProvider, public alertCtrl: AlertController) {
+    public userservice: UserProvider, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
-    
+
   }
 
   reset() {
@@ -30,13 +30,16 @@ export class PasswordresetPage {
       buttons: ['OK']
     });
     this.userservice.passwordreset(this.email).then((res: any) => {
-      if (res.success) {
+      if (!res.code) {
         alert.setTitle('Email enviado');
         alert.setSubTitle('Porfavor siga as intruções no email para recuperar sua senha');
+        alert.present();
+        this.navCtrl.setRoot('LoginPage');
       }
     }).catch((err) => {
       alert.setTitle('Erro');
-      alert.setSubTitle(err);
+      alert.setSubTitle("Digite o e-mail por favor");
+      alert.present();
     })
   }
 

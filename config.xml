@@ -85,6 +85,7 @@
     <plugin name="cordova-plugin-filepath" spec="~1.4.2" />
     <plugin name="cordova-plugin-filechooser" spec="~1.0.1" />
     <plugin name="cordova-plugin-stripe" spec="1.5.3" />
+    <plugin name="com.paypal.cordova.mobilesdk" spec="3.5.0" />
     <engine name="browser" spec="5.0.4" />
     <engine name="android" spec="6.3.0" />
 </widget>

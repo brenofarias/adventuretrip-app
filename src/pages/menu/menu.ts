@@ -20,10 +20,11 @@ export class MenuPage {
   @ViewChild(Nav) nav: Nav;
 
   pages: PageInterface[] = [
-    { title: 'Chat', pageName: 'ChatsPage', icon:'chatbubbles'},
-    { title: 'Grupos', pageName: 'GroupsPage', icon:'home'},
-    { title: 'Favoritos', pageName: 'FavoritosPage', icon:'heart'},
-    { title: 'Perfil', pageName: 'ProfilePage', icon:'person'}
+    { title: 'Chat', pageName: 'ChatsPage', icon:'ios-chatbubbles-outline'},
+    { title: 'Grupos', pageName: 'GroupsPage', icon:'ios-people-outline'},
+    { title: 'Favoritos', pageName: 'FavoritosPage', icon:'ios-heart-outline'},
+    { title: 'Viagens', pageName: 'ViagensPage', icon:'ios-paper-plane-outline'},
+    { title: 'Perfil', pageName: 'ProfilePage', icon:'ios-person-outline'}
   ]
 
   nome;

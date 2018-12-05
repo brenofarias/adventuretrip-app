@@ -49,7 +49,7 @@ export class UserProvider {
   passwordreset(email) {
     var promise = new Promise((resolve, reject) => {
       firebase.auth().sendPasswordResetEmail(email).then(() => {
-        resolve({ success: true });
+        resolve(true);
       }).catch((err) => {
         reject(err);
       })
@@ -147,6 +147,25 @@ export class UserProvider {
     })
     return promise;
 
+  }
+
+  viagens() {
+    // var user = firebase.auth().currentUser.uid;
+    var viagens = firebase.database().ref('/viagens')
+    var promise = new Promise((resolve, reject) => {
+      viagens.once('value', (snapshot) => {
+        let pacotesdata = snapshot.val();
+        let pacotes = [];
+        for (var key in pacotesdata) {
+          pacotes.push(pacotesdata[key]);
+        }
+        resolve(pacotes);
+      }).catch((err) => {
+        reject(err);
+      })
+    })
+
+    return promise;
   }
 
 }

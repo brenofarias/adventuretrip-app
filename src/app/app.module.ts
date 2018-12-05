@@ -30,6 +30,7 @@ import { PagamentoPage } from '../pages/pagamento/pagamento';
 import { AppProvider } from '../providers/app/app';
 import { InicioPage } from '../pages/inicio/inicio';
 import { BrMaskerModule } from 'brmasker-ionic-3';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     PacotesProvider,
     PaymentProvider,
     AppProvider,
+    DatePipe
   ]
 })
 export class AppModule {}

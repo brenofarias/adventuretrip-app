@@ -33,16 +33,15 @@ export class DescpacotesPage {
     preco: ''
   }
 
-  total;
+  data;
+  total;  
   moveon = true;
 
   // map: GoogleMap;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
     // this.pacote = this.pacoteservice.pacote;
-    // console.log(this.pacote);
     this.pacote = navParams.get('pacote');
-    console.log(this.pacote);
 
   }
 
@@ -73,11 +72,12 @@ export class DescpacotesPage {
 
   // go to checkout page
   checkout() {
-    // console.log(this.total);
+    console.log(this.data);
     
     this.navCtrl.push(PagamentoPage, {
       pacote: this.pacote,
-      total: this.total
+      total: this.total,
+      data: this.data
     });
   }
 

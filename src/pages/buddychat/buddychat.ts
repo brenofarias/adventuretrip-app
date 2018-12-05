@@ -47,7 +47,7 @@ export class BuddychatPage {
 
   addmessage() {
     this.chatservice.addnewmessage(this.newmessage).then(() => {
-      this.content.scrollToBottom();
+      // this.content.scrollToBottom();
       this.newmessage = '';
     })
   }
@@ -70,7 +70,7 @@ export class BuddychatPage {
     this.imgstore.picmsgstore().then((imgurl) => {
       loader.dismiss();
       this.chatservice.addnewmessage(imgurl).then(() => {
-        this.content.scrollToBottom();
+        // this.content.scrollToBottom();
         this.newmessage = '';
       })
     }).catch((err) => {

@@ -34,14 +34,14 @@
         <h4>{{item.displayName}}</h4>
       </ion-item>
       <ion-item-options>
-        <button ion-button color="secondary" (click)="accept(item)">
+        <p ion-button color="hcolor" (click)="accept(item)">
           <ion-icon name="checkmark"></ion-icon>
           ADD
-        </button>
-        <button ion-button color="danger" (click)="ignore(item)">
+        </p>
+        <p ion-button color="danger" (click)="ignore(item)">
           <ion-icon name="trash"></ion-icon>
           NOP
-        </button>
+        </p>
       </ion-item-options>
     </ion-item-sliding>
     <ion-list-header>

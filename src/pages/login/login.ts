@@ -50,6 +50,9 @@ export class LoginPage {
         if (!res.code) {
           this.navCtrl.setRoot('MenuPage');
         }
+      }).catch(() => {
+        toaster.setMessage('E-mail ou senha inválidos');
+        toaster.present();
       })
     }
 

@@ -12,16 +12,16 @@
   <ion-card class="trip-info card round" style="border-radius: 1rem">
     <img [src]="pacote.foto" alt="">
     <ion-grid padding>
-      <ion-row >
-        <ion-col >
+      <ion-row>
+        <ion-col>
           <h1 ion-text color="hcolor"> {{pacote.nome}} </h1>
           <div>
             <span> {{pacote.descricao}} </span>
             <!-- <span ion-text color="dark">adults Adults</span> -->
           </div>
-          <div >
-            <p ion-text color="dark"> 20/12/2018 </p>
-            <p ion-text> Local </p>
+          <div padding-top>
+            <p ion-text> Data </p>
+            <p ion-text color="dark"> {{data}} </p>
           </div>
           <!-- <div margin-top>
             <ion-icon name="checkmark" ></ion-icon>
@@ -30,7 +30,7 @@
         </ion-col>
         <ion-col col-4>
           <span ion-text>Total</span>
-          <h3 ion-text color="hcolor" bold margin-top> {{ total | currency:'BRL':true }} </h3>
+          <h2 ion-text color="hcolor" bold margin-top> {{ total | currency:'BRL':true }} </h2>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -42,6 +42,9 @@
     <ion-segment-button value="creditcard">
       Cartão de Crédito
     </ion-segment-button>
+    <!-- <ion-segment-button value="paypal">
+      Boleto
+    </ion-segment-button> -->
   </ion-segment>
 
   <div class="card round" margin-top margin-bottom>
@@ -121,7 +124,8 @@
   </div>
 
   <!--submit button-->
-  <button ion-button outline margin-top round block tappable color="hcolor" (click)="pay()">PAGAR</button>
+  <button ion-button outline margin-top round block tappable color="hcolor" (click)="pay()">PAGAR {{ total | currency:'BRL':true }}</button>
+
 </ion-content>
 
 <!-- <ion-content> -->

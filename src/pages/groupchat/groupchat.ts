@@ -60,13 +60,15 @@ export class GroupchatPage {
             this.imgornot.push(false);
           }
         }
-        this.scrollto();
+        // this.scrollto();
       })
    
     }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GroupchatPage');
+    this.groupservice.getgroupmsgs(this.groupName);
+
   }
 
   presentOwnerSheet() {
@@ -115,7 +117,7 @@ export class GroupchatPage {
           }
         },
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           icon: 'cancel',
           handler: () => {
@@ -164,16 +166,16 @@ export class GroupchatPage {
 
   addgroupmsg() {
     this.groupservice.addgroupmsg(this.newmessage).then(() => {
-      this.scrollto();
+      // this.scrollto();
       this.newmessage = '';
     })
   }
 
-  scrollto() {
-    setTimeout(() => {
-      this.content.scrollToBottom();
-    }, 100);
-  }
+  // scrollto() {
+  //   setTimeout(() => {
+  //     this.content.scrollToBottom();
+  //   }, 100);
+  // }
 
   sendpicmsg() {
     let loader = this.loadingCtrl.create({
@@ -183,7 +185,7 @@ export class GroupchatPage {
     this.imgstore.picmsgstore().then((imgurl) => {
       loader.dismiss();
       this.groupservice.addgroupmsg(imgurl).then(() => {
-        this.scrollto();
+        // this.scrollto();
         this.newmessage = '';
       })
     }).catch((err) => {

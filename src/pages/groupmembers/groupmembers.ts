@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, AlertController } from 'ionic-angular';
 import { GroupsProvider } from '../../providers/groups/groups';
 
 /**
@@ -17,7 +17,7 @@ import { GroupsProvider } from '../../providers/groups/groups';
 export class GroupmembersPage {
   groupmembers;
   tempgrpmembers;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public groupservice: GroupsProvider,
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public groupservice: GroupsProvider,
   public events: Events) {
   }
 
@@ -56,7 +56,13 @@ export class GroupmembersPage {
   }
 
   removemember(member) {
-    this.groupservice.deletemember(member)
+    let namealert = this.alertCtrl.create({
+      buttons: ['Okay']
+    });
+    this.groupservice.deletemember(member).then(() => {
+      namealert.setMessage(member.displayName + " foi deletado do grupo");
+      namealert.present();
+    })
   }
 
 }

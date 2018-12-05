@@ -19,23 +19,24 @@ import { GroupsPage } from '../groups/groups';
 export class NewgroupPage {
   newgroup = {
     groupName: 'Nome do Grupo',
-    groupPic: 'https://firebasestorage.googleapis.com/v0/b/chat-603cb.appspot.com/o/profileimages%2Fchatterplace.png?alt=media&token=67373b89-c88e-4a22-882d-523bebd7cf78'
+    groupPic: 'https://firebasestorage.googleapis.com/v0/b/adventuretrip-b4a91.appspot.com/o/groupimages%2Fdownload.png?alt=media&token=848f1fde-72fb-4abf-be80-85afeae24de9'
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
     public groupservice: GroupsProvider, public imghandler: ImghandlerProvider, public loadingCtrl: LoadingController) {
   }
 
   chooseimage() {
-    if (this.newgroup.groupName == 'GroupName') {
-      let namealert = this.alertCtrl.create({
-        buttons: ['Okay'],
-        message: 'Por favor coloque o nome do grupo primeiro'
-      });
-      namealert.present()
+    let namealert = this.alertCtrl.create({
+      buttons: ['Okay']
+    });
+    if (this.newgroup.groupName == "Nome do Grupo") {
+      namealert.setTitle("Nome inválido");
+      namealert.setMessage("Escolha o nome do grupo");
+      namealert.present();
     }
     else {
       let loader = this.loadingCtrl.create({
-        content: 'Carregando aguarde...'
+        content: 'Carregando, Por favor aguarde..'
       });
       loader.present();
       this.imghandler.grouppicstore(this.newgroup.groupName).then((res: any) => {

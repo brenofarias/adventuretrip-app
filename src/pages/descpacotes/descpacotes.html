@@ -19,15 +19,15 @@
     </ion-card-content>
   </ion-card> -->
 
-  <ion-grid style="background-color: #2E8B57; margin-top: -2vh; padding: 2vh; border-top: 1px solid #ccc">
+  <ion-grid style="background-color: #fff; margin-top: -2vh; padding: 1vh; border-top: 1px solid #ccc">
     <ion-row>
       <ion-col text-center>
         <div>
           <div>
-            <ion-icon name="time" class="text-white" color="light"></ion-icon>
-            <span ion-text style="color: rgb(180, 255, 212)">{{ pacote.nome }}</span>
-            <ion-icon name="checkbox-outline" margin-left color="light"></ion-icon>
-            <span ion-text style="color: rgb(180, 255, 212)">Cancelamento gratuito</span>
+            <!-- <ion-icon name="time" class="text-white" color="light"></ion-icon>
+            <span ion-text style="color: rgb(180, 255, 212)">{{ pacote.nome }}</span> -->
+            <!-- <ion-icon name="checkbox-outline" margin-left margin-top color="light"></ion-icon> -->
+            <!-- <span ion-text style="color: rgb(180, 255, 212)">Cancelamento gratuito</span> -->
             <!-- <ion-icon name="list-box" margin-left class="text-white"></ion-icon> -->
             <!-- <span ion-text color="black" >Electronic voucher</span> -->
           </div>
@@ -50,16 +50,16 @@
     <span ion-text color="dark" class="bold">INCLUSO</span>
     <ul class="highlight">
       <li>
-        <!-- <ion-icon name="checkmark" color="green"></ion-icon> -->
-        <span ion-text style="font-size: 15pt" color="primary">{{ pacote.incluso }}</span><br/>
+        <ion-icon name="checkmark" color="green"></ion-icon>
+        <span ion-text style="font-size: 10pt" color="hcolor">{{ pacote.incluso }}</span><br />
       </li>
       <li>
-        <!-- <ion-icon name="checkmark" color="green"></ion-icon> -->
-        <span ion-text style="font-size: 15pt" color="primary">{{ pacote.incluso2 }}</span><br/>
+        <ion-icon name="checkmark" color="green"></ion-icon>
+        <span ion-text style="font-size: 10pt" color="hcolor">{{ pacote.incluso2 }}</span><br />
       </li>
       <li>
-        <!-- <ion-icon name="checkmark" color="green"></ion-icon> -->
-        <span ion-text style="font-size: 15pt" color="primary">{{ pacote.incluso3 }}</span><br/>
+        <ion-icon name="checkmark" color="green"></ion-icon>
+        <span ion-text style="font-size: 10pt" color="hcolor">{{ pacote.incluso3 }}</span><br />
       </li>
     </ul>
   </div>
@@ -105,6 +105,12 @@
               [(ngModel)]="total"></ion-input>
           </ion-item>
         </ion-row>
+        <ion-item>
+          <ion-label>Escolha o dia</ion-label>
+          <ion-datetime displayFormat="DD/MMMM/YYYY" pickerFormat="DD/MMMM/YYYY" [(ngModel)]="data" min="2018-12-07" max="2030-12-31" 
+            monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro">
+          </ion-datetime>
+        </ion-item>
       </ion-grid>
     </div>
     <div padding class="form-bottom">
@@ -119,11 +125,6 @@
   <div class="border-bottom" padding>
     <span ion-text color="primary" class="bold">DESCRIÇÃO</span>
     <p ion-text>{{ pacote.descricao }}</p>
-  </div>
-
-  <!--address-->
-  <div class="border-bottom" padding>
-    <span ion-text color="primary" class="bold">LOCALIZAÇÃO</span>
   </div>
 
 </ion-content>
