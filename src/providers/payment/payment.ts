@@ -57,12 +57,18 @@ export class PaymentProvider {
         descricao: pacote.descricao,
         estado: pacote.estado,
         foto: pacote.foto,
+        foto2: pacote.foto2,
+        foto3: pacote.foto3,
+        foto4: pacote.foto4,
+        tipo: pacote.tipo,
         nome: pacote.nome,
         preco: pacote.preco,
         incluso: pacote.incluso,
         incluso2: pacote.incluso2,
         incluso3: pacote.incluso3,
-        data: data
+        data: pacote.data,
+        comprador: firebase.auth().currentUser.displayName,
+        fotocomprador: firebase.auth().currentUser.photoURL
       }).then(() => {
         resolve({ success: true });
       })
@@ -70,6 +76,28 @@ export class PaymentProvider {
       console.log(err);
     })
 
+    return promise;
+  }
+
+  comprador() {
+    let viagens = firebase.database().ref('/viagens');
+    var promise = new Promise((resolve, reject) => {
+      viagens.once('value', (snapshot) => {
+        let pacotesdata = snapshot.val();
+        let comprador = [];
+        for (var key in pacotesdata) {
+          comprador.push(pacotesdata[key]);
+          // console.log(pacotesdata[key]);
+          // console.log(temparr);
+          
+        }
+        // console.log(temparr);
+        
+        resolve(comprador);
+      }).catch((err) => {
+        reject(err);
+      })
+    })
     return promise;
   }
 }

@@ -14,8 +14,7 @@
 
 </ion-header>
 
-<ion-content padding class="trips detail-bg">
-  <!--list of trips-->
+<ion-content padding class="trips detail-bg" [hidden]="!moveon">
   <div class="trip card" *ngFor="let p of filtro" tappable (click)="descpacotes(p)" margin-bottom>
     <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + p.foto + ')'}">
       <div class="background-filter rlt">
@@ -30,6 +29,26 @@
       <ion-icon padding-left color="light" name="person" style="margin-top: 1vh"></ion-icon>
       <!-- <span ion-text color="light" padding-vertical>{{ p.preco }}</span> -->
       <span style="margin-left: 15vw" ion-text color="light" padding-vertical><strong>por adulto</strong> (crianças tem <span ion-text>50%
+          OFF</span>)</span>
+    </div>
+  </div>
+</ion-content>
+
+<ion-content padding class="trips detail-bg" [hidden]="moveon">
+  <div class="trip card" *ngFor="let p of filtro" tappable (click)="descpacotes(p)" margin-bottom>
+    <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + p.foto + ')'}">
+      <div class="background-filter rlt">
+        <div class="align-bottom" padding-left padding-right>
+          <h1 ion-text color="light">{{ p.nome }}</h1>
+          <h6 ion-text color="light">{{ p.preco | currency:'BRL':true }}</h6>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div style="background-color: #2E8B57; height: 5vh">
+      <ion-icon padding-left color="light" name="person" style="margin-top: 1vh"></ion-icon>
+      <!-- <span ion-text color="light" padding-vertical>{{ p.preco }}</span> -->
+      <span style="margin-left: 15vw" ion-text color="light" padding-vertical><strong>acima de {{p.pessoas}} pessoas</strong> (<span ion-text>{{p.desconto}}%
           OFF</span>)</span>
     </div>
   </div>

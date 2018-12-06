@@ -1,17 +1,8 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController  } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { PacotesProvider } from '../../providers/pacotes/pacotes';
 import { PagamentoPage } from '../pagamento/pagamento';
-// import {
-//   GoogleMaps,
-//   GoogleMap,
-//   GoogleMapsEvent,
-//   GoogleMapOptions,
-//   CameraPosition,
-//   MarkerOptions,
-//   Marker,
-//   Environment
-// } from '@ionic-native/google-maps';
+import { PaymentProvider } from '../../providers/payment/payment';
 
 @IonicPage()
 @Component({
@@ -19,7 +10,7 @@ import { PagamentoPage } from '../pagamento/pagamento';
   templateUrl: 'descpacotes.html',
 })
 export class DescpacotesPage {
-  pacote = [];
+  pacote;
   // trip info
   trip: any;
   // number of adult
@@ -34,19 +25,40 @@ export class DescpacotesPage {
   }
 
   data;
-  total;  
+  total;
   moveon = true;
+  a = true;
+  tipo;
+  pessoas = [];
+  comprador;
 
-  // map: GoogleMap;
+  p;
+  d;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
+  constructor(public navCtrl: NavController, public viagem: PaymentProvider, public alertCtrl: AlertController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
     // this.pacote = this.pacoteservice.pacote;
     this.pacote = navParams.get('pacote');
+    this.p = this.pacote.preco;
+    this.d = this.pacote.desconto;
+    console.log(this.p, this.d);
+    this.tipo = navParams.get('tipo');
+    if (this.tipo == "sozinho") {
+      this.moveon = true
+    } else {
+      this.moveon = false
+      this.comprador = [];
+      this.viagem.comprador().then((res: any) => {
+        res.map((map) => {
+          // console.log(map)
+          this.comprador.push(...(<any>Object).values(map))
+        });
+      })
+    }
 
   }
 
   ionViewDidLoad() {
-    this.moveon = false;
+    this.a = false;
 
   }
 
@@ -72,8 +84,8 @@ export class DescpacotesPage {
 
   // go to checkout page
   checkout() {
-    console.log(this.data);
-    
+    console.log(this.total);
+
     this.navCtrl.push(PagamentoPage, {
       pacote: this.pacote,
       total: this.total,

@@ -32,7 +32,7 @@ export class EstadosPage {
 
   pacotes(objEstado) {
     // this.pacoteservice.initializebuddy(pacotes);
-    this.navCtrl.push('PacotesPage', {
+    this.navCtrl.push('TipoPage', {
       estado: objEstado.nome
     });
   }

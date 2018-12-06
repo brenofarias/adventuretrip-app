@@ -8,35 +8,36 @@
 
 </ion-header>
 
-<ion-content class="common-bg">
-  <img [src]="pacote.foto" alt="">
-  <!--<ion-card padding> 
-    <ion-card-header>
-      {{pacote.nome}}
-    </ion-card-header>
-    <ion-card-content>
-      {{pacote.descricao}}
-    </ion-card-content>
-  </ion-card> -->
+<ion-content class="common-bg" [hidden]="!moveon">
+  <!-- <img [src]="pacote.foto" alt=""> -->
+  <ion-slides style="height: 40vh; margin-top: -3vh">
+    <ion-slide>
+      <img [src]="pacote.foto" alt="" style="background-size: 100% 100%; height: 50vh;">
+    </ion-slide>
 
-  <ion-grid style="background-color: #fff; margin-top: -2vh; padding: 1vh; border-top: 1px solid #ccc">
+    <ion-slide>
+      <img [src]="pacote.foto2" alt="" style="background-size: 100% 100%; height: 50vh;">
+    </ion-slide>
+
+    <ion-slide>
+      <img [src]="pacote.foto3" alt="" style="background-size: 100% 100%; height: 50vh;">
+    </ion-slide>
+
+    <ion-slide>
+      <img [src]="pacote.foto4" alt="" style="background-size: 100% 100%; height: 50vh;">
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-grid style="background-color: #2E8B57; margin-top: -2vh; padding: 1vh; border-top: 1px solid #ccc">
     <ion-row>
       <ion-col text-center>
         <div>
-          <div>
-            <!-- <ion-icon name="time" class="text-white" color="light"></ion-icon>
-            <span ion-text style="color: rgb(180, 255, 212)">{{ pacote.nome }}</span> -->
-            <!-- <ion-icon name="checkbox-outline" margin-left margin-top color="light"></ion-icon> -->
-            <!-- <span ion-text style="color: rgb(180, 255, 212)">Cancelamento gratuito</span> -->
-            <!-- <ion-icon name="list-box" margin-left class="text-white"></ion-icon> -->
-            <!-- <span ion-text color="black" >Electronic voucher</span> -->
-          </div>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <!--high light-->
   <div class="border-bottom" padding>
     <ion-fab right edge style="position: absolute;">
       <button ion-fab mini (click)="addfav(pacote)">
@@ -44,9 +45,6 @@
       </button>
     </ion-fab>
 
-    <!-- <button ion-fab style="position: absolute;">
-      <ion-icon name="heart" color="danger"></ion-icon>
-    </button> -->
     <span ion-text color="dark" class="bold">INCLUSO</span>
     <ul class="highlight">
       <li>
@@ -64,12 +62,10 @@
     </ul>
   </div>
 
-  <!--booking form-->
   <div class="booking-form card round" margin>
     <div class="border-bottom" padding>
       <h5>{{ pacote.nome }}</h5>
 
-      <!--choose guest-->
       <ion-grid class="filters" no-padding margin-top>
         <ion-row>
           <ion-col class="adult" width-70>
@@ -99,16 +95,15 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <!-- <span ion-text color="primary" class="bold">TOTAL</span> -->
-          <ion-item [hidden]="!moveon">
+          <ion-item [hidden]="!a">
             <ion-input type="text" disabled="true" value="{{ adults * pacote.preco + children * pacote.preco * 0.5 }}"
               [(ngModel)]="total"></ion-input>
           </ion-item>
         </ion-row>
         <ion-item>
           <ion-label>Escolha o dia</ion-label>
-          <ion-datetime displayFormat="DD/MMMM/YYYY" pickerFormat="DD/MMMM/YYYY" [(ngModel)]="data" min="2018-12-07" max="2030-12-31" 
-            monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro">
+          <ion-datetime displayFormat="DD/MMMM/YYYY" pickerFormat="DD/MMMM/YYYY" [(ngModel)]="data" min="2018-12-07"
+            max="2030-12-31" monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro">
           </ion-datetime>
         </ion-item>
       </ion-grid>
@@ -125,6 +120,102 @@
   <div class="border-bottom" padding>
     <span ion-text color="primary" class="bold">DESCRIÇÃO</span>
     <p ion-text>{{ pacote.descricao }}</p>
+  </div>
+
+</ion-content>
+
+<ion-content class="common-bg" [hidden]="moveon">
+  <!-- <img [src]="pacote.foto" alt=""> -->
+  <ion-slides style="height: 40vh; margin-top: -3vh">
+    <ion-slide>
+      <img [src]="pacote.foto" alt="" style="background-size: 100% 100%; height: 50vh;">
+    </ion-slide>
+
+    <ion-slide>
+      <img [src]="pacote.foto2" alt="" style="background-size: 100% 100%; height: 50vh;">
+    </ion-slide>
+
+    <ion-slide>
+      <img [src]="pacote.foto3" alt="" style="background-size: 100% 100%; height: 50vh;">
+    </ion-slide>
+
+    <ion-slide>
+      <img [src]="pacote.foto4" alt="" style="background-size: 100% 100%; height: 50vh;">
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-grid style="background-color: #2E8B57; margin-top: -2vh; padding: 1vh; border-top: 1px solid #ccc">
+    <ion-row>
+      <ion-col text-center>
+        <div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="border-bottom" padding>
+    <ion-fab right edge style="position: absolute;">
+      <button ion-fab mini (click)="addfav(pacote)">
+        <ion-icon name="heart" color="danger"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <span ion-text color="dark" class="bold">INCLUSO</span>
+    <ul class="highlight">
+      <li>
+        <ion-icon name="checkmark" color="green"></ion-icon>
+        <span ion-text style="font-size: 10pt" color="hcolor">{{ pacote.incluso }}</span><br />
+      </li>
+      <li>
+        <ion-icon name="checkmark" color="green"></ion-icon>
+        <span ion-text style="font-size: 10pt" color="hcolor">{{ pacote.incluso2 }}</span><br />
+      </li>
+      <li>
+        <ion-icon name="checkmark" color="green"></ion-icon>
+        <span ion-text style="font-size: 10pt" color="hcolor">{{ pacote.incluso3 }}</span><br />
+      </li>
+    </ul>
+  </div>
+
+  <div class="booking-form card round" margin>
+    <div class="border-bottom" padding>
+      <h5>{{ pacote.nome }}</h5>
+
+      <ion-grid class="filters" no-padding margin-top>
+        <span ion-text color="primary" class="bold">DESCRIÇÃO</span>
+        <p ion-text>{{ pacote.descricao }}</p>
+        <ion-row>
+          <ion-item [hidden]="!a">
+            <ion-input type="text" disabled="true" value="{{ p - p * d/100 }}"
+              [(ngModel)]="total"></ion-input>
+          </ion-item>
+        </ion-row>
+          <ion-label>Data da aventura {{ pacote.data }}</ion-label>          
+      </ion-grid>
+    </div>
+    <div padding class="form-bottom">
+      <button ion-button round block outline class="pull-right" style="background-color: #2E8B57" (click)="checkout()">
+        Comprar agora {{ total  | currency:'BRL':true }}
+      </button>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <!--pessoas-->
+  <div padding>
+    <div class="booking-form card round" margin-top>
+      <h5 margin-left margin-top>Aventureiros</h5>
+      <ion-list no-margin *ngFor="let c of comprador" >
+        <ion-item class="primary-bg">
+          <ion-avatar item-start>
+            <img [src]="c.fotocomprador">
+          </ion-avatar>
+          <h2 ion-text class="text-white bold">{{c.comprador}}</h2>
+        </ion-item>
+      </ion-list>
+    </div>
+
   </div>
 
 </ion-content>
