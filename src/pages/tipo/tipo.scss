@@ -1,21 +1,20 @@
 page-tipo {
     .individual {
-        background-image: url('../assets/imgs/b.jpg');        
-        height: 50vh;
+        // background-image: url('../assets/imgs/a.jpeg');        
+        img{
+            height: 35vh;
+            margin-left: 13vw;
+        }
         background-size: 100% 100%;
+    }
+
+    .a {
+        margin-bottom: -3vh;
     }
 
     .grupo {
-        background-image: url('../assets/imgs/a.jpg');        
-        height: 50vh; 
+        // background-image: url('../assets/imgs/b.jpeg');        
+        height: 40vh; 
         background-size: 100% 100%;
-    }
-
-    #btn {
-        margin-top: 25vh;
-    }
-
-    #btn2 {
-        margin-top: 25vh;
     }
 }

@@ -19,6 +19,10 @@
         <ion-icon item-start style="color: #2E8B57" [name]="p.icon" [color]="isActive(p)"></ion-icon>
         {{ p.title }}
       </button>
+      <button ion-item menuClose (click)="sair()" style="margin-top: 20vh">
+        <ion-icon item-start style="color: #2E8B57" name="ios-log-out-outline" [color]="isActive(p)"></ion-icon>
+        Sair
+      </button>
     </ion-list>
 
   </ion-content>

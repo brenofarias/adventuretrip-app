@@ -9,22 +9,18 @@ import { UserProvider } from '../../providers/user/user'
 })
 export class ViagensPage {
   viagens;
-  now:any = new Date();
+  now: any = new Date();
   constructor(public navCtrl: NavController, public navParams: NavParams, public userprovider: UserProvider) {
     this.userprovider.viagens().then((res: any) => {
-      this.viagens = [];
-      res.map((map) => {
-        // console.log(map)
-        this.viagens.push(...(<any>Object).values(map))
-
-      });
+      this.viagens = res
+      console.log(this.viagens);
+      
     })
-    
-    this.now = this.now.getMonth()+1;
-    console.log(this.now);
-    
-  }
 
+    this.now = this.now.getMonth() + 1;
+    // console.log(this.now);
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViagensPage');

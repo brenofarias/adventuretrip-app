@@ -1,6 +1,8 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user'
+import firebase from 'firebase';
+import { InicioPage } from '../inicio/inicio';
 
 export interface PageInterface {
   title: string;
@@ -52,6 +54,12 @@ export class MenuPage {
 
   isActive(page: PageInterface) {
 
+  }
+
+  sair() {
+    firebase.auth().signOut().then(() => {
+      this.navCtrl.setRoot(InicioPage);
+    })
   }
 
 

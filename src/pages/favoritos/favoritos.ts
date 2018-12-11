@@ -20,13 +20,7 @@ export class FavoritosPage {
   pacotes;
   constructor(public navCtrl: NavController, public actionSheet: ActionSheetController, public navParams: NavParams, public pacoteservice: PacotesProvider) {
     this.pacoteservice.getallfav().then((res: any) => {
-      this.pacotes = [];
-      res.map((map) => {
-        // console.log(map)
-        this.pacotes.push(...(<any>Object).values(map))
-      });
-      console.log(this.pacotes);
-      // console.log('resposta mais top da cidade',res);           
+      this.pacotes = res
     })
   }
 
@@ -45,7 +39,7 @@ export class FavoritosPage {
               pacote: pacote
             });
             console.log(pacote);
-            
+
           }
         },
         {

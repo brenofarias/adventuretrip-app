@@ -153,7 +153,7 @@ export class UserProvider {
     // var user = firebase.auth().currentUser.uid;
     var viagens = firebase.database().ref('/viagens')
     var promise = new Promise((resolve, reject) => {
-      viagens.once('value', (snapshot) => {
+      viagens.child(firebase.auth().currentUser.uid).once('value', (snapshot) => {
         let pacotesdata = snapshot.val();
         let pacotes = [];
         for (var key in pacotesdata) {

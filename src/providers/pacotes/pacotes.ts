@@ -65,7 +65,7 @@ export class PacotesProvider {
 
   getallfav() {
     var promise = new Promise((resolve, reject) => {
-      this.fav.once('value', (snapshot) => {
+      this.fav.child(firebase.auth().currentUser.uid).once('value', (snapshot) => {
         let pacotesdata = snapshot.val();
         let pacotes = [];
         for (var key in pacotesdata) {

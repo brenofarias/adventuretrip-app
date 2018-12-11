@@ -22,6 +22,8 @@ export class EstadosProvider {
         for (var key in estadosdata) {
           temparr.push(estadosdata[key]);
         }
+        console.log(firebase.auth().currentUser.uid);
+        
         resolve(temparr);
       }).catch((err) => {
         reject(err);
